@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PsyLife-data team">
+
+    <title>Chart Blog 5</title>
+
+    <link rel="canonical" href="/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="css/syntax.css">
+
+    <!-- Custom Fonts -->
+<!-- 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	 <style>
+    @media only screen and (min-width: 641px) {
+      .am-offcanvas {
+        display: block;
+        position: static;
+        background: none;
+      }
+
+      .am-offcanvas-bar {
+        position: static;
+        width: auto;
+        background: none;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      .am-offcanvas-bar:after {
+        content: none;
+      }
+
+    }
+
+    @media only screen and (max-width: 640px) {
+      .am-offcanvas-bar .am-nav>li>a {
+        color:#ccc;
+        border-radius: 0;
+        border-top: 1px solid rgba(0,0,0,.3);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05)
+      }
+
+      .am-offcanvas-bar .am-nav>li>a:hover {
+        background: #404040;
+        color: #fff
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-nav-header {
+        color: #777;
+        background: #404040;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+        text-shadow: 0 1px 0 rgba(0,0,0,.5);
+        border-top: 1px solid rgba(0,0,0,.3);
+        font-weight: 400;
+        font-size: 75%
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-active>a {
+        background: #1a1a1a;
+        color: #fff;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+      }
+
+      .am-offcanvas-bar .am-nav>li+li {
+        margin-top: 0;
+      }
+    }
+
+    .my-head {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .my-button {
+      position: fixed;
+      top: 0;
+      right: 0;
+      border-radius: 0;
+    }
+    .my-sidebar {
+      padding-right: 0;
+      border-right: 1px solid #eeeeee;
+    }
+
+    .my-footer {
+      border-top: 1px solid #eeeeee;
+      padding: 10px 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+	img.position{
+	margin:auto;
+	}
+	img.bq{
+	display:inline;
+	height:80px;
+	vertical-align:text-bottom;
+	}
+#customers
+  {
+  width:100%;
+  border-collapse:collapse;
+  text-align:center;
+
+
+  }
+
+#customers td, #customers th
+  {
+  font-size:1em;
+  border:1px solid gray;
+  padding:3px 7px 2px 7px;
+  	vertical-align:middle;
+	  text-align:center;
+	  width:10%;
+  }
+
+#customers th{
+background-color:gray;
+color:white;
+
+}
+
+#customers tr.alt td 
+  {
+  color:#000000;
+  background-color:rgb(240,240,240);
+    width:10%;
+		vertical-align:middle;
+  }
+ 
+/*.navbar-custom .nav li a:hover, .navbar-custom .nav li a:focus {
+color: rgba(149, 149, 149, 0.8);}
+.navbar-custom .nav li a {
+color: rgba(80, 80, 80, 0.8);
+padding: 20px;
+}*/
+  </style>
+<script src="js/echarts/build/dist/echarts.js" type="text/javascript"></script>
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+<!--             <a class="navbar-brand" href="index.html">Back to Home</a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="index0.html">Home</a>
+                </li>
+                
+                <li>
+                    <a href="http://www.psylife.cc/" target="_blank">About</a>
+                </li>
+                
+                <li>
+                    <a href="http://xyf2015.github.io/blog/" target="_blank" >Contact</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('img/charts/05/01a.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Echarts系列之——热力图</h1>
+                    
+                    <h2 class="subheading">被你看着，我的脸又红又绿<br/>千万要牢记：它只是一个图层。希望你能理解这句话...</h2>
+                    
+                    <span class="meta">整理人：陈姣  &nbsp;&nbsp;&nbsp;&nbsp; 2016-01-11</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+ 
+<article>
+    <div class="container">
+	
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>Excel图表部分暂告一段落（我悄悄地告诉你，Excel图标的精髓有二：1.活用组合图；2.数据转换），那么以下进入Echarts部分。</p>
+				<p>或许有人会问，Excel已经如此强大，为什么还要开发其他工具？对于这个问题，实际上最初看到网页图表的呈现的时候，我的态度是抵触的，因为看了一遍浏览下来的感觉是用Excel，大部分的图都能做，用Web呈现图表也并没有什么优势嘛。</p>
+				
+				<p>所以，你以为我接下来要写，诸如，时至今日，我才觉得当时我是多么蠢这类的话么？NO，其实我一直觉得当时的想法是正确的，极简就是极好的。</p>
+				
+				<p>不过，更为重要的一点是：如果固步自封，是不会进步的，所以，生而为人，就应该常学习，掌握一些新的东西。那么，这一期主题是：<strong>Echarts系列之——热力图</strong>。</p>
+				
+
+<h2 class="section-heading">an Introduction to Heatmap</h2>
+
+<p>首先，先引（chao）用（xi）一段话，说明下什么是热力图（heatmap）：</p>
+
+<blockquote>A <strong>heat map</strong> is a graphical representation of data where the individual values contained in a matrix are represented as colors. Fractal maps and tree maps both often use a similar system of color-coding to represent the values taken by a variable in a hierarchy. The term is also used to mean its thematic application as a choropleth map.</blockquote>
+
+<p>简单翻译下：热力图是一种图表，是一种使用颜色呈现具体数值的表达形式。（别问我为啥就翻了一句，因为百度翻译不靠谱。）</p>
+
+<p>还是还我自己理解的话比较好...通俗来说，热力图就是用颜色深浅来表达数值高低的一种形式。如果还是不好理解的话，看图就一目了然了。</p>
+<div >
+<img src="img/charts/05/heatmap_baidu.png" style="width:700px;height:400px;position:absolute;margin-left:4%">
+<div id="main1" style="height:400px;width:700px;margin-left:4%"></div></div>
+<br/>
+<span class="caption text-muted">图1 ECharts热力图示意（刷新有惊喜）</span>
+<script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'js/echarts/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+
+                'echarts/chart/heatmap', // 使用柱状图就加载bar模块，按需加载
+
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main1')); 
+                
+                var heatData = [];
+for (var i = 0; i < 20; ++i) {
+    heatData.push([
+        380 + Math.random() * 300,
+        10 + Math.random() * 10,
+        Math.random()
+    ]);
+}
+for (var i = 0; i < 100; ++i) {
+    heatData.push([
+        100 + Math.random() * 500,
+        150 + Math.random() * 50,
+        Math.random()
+    ]);
+}
+for (var i = 0; i < 200; ++i) {
+    heatData.push([
+        Math.random() * 800,
+        Math.random() * 400,
+        Math.random() * 0.2
+    ]);
+}
+option = {
+    title : {
+        text: ''
+    },
+    series : [
+        {
+            type : 'heatmap',
+            data : heatData,
+            hoverable : true
+        }
+    ]
+};
+
+        
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            }
+        );
+</script>
+
+
+<p>这是ECharts上的示例图表，大概的意思是他们虚拟了一组数据，是关于登录百度首页的用户的视觉热区。图中，红色越深，表示用户看的时间越长，而白色区域就是用户基本不会扫视的地方。（这数据纯属虚构，请勿当成结论，切记，切记...）</p>
+
+<p>所以，只要知道平面的坐标，以及相应的数据，想做什么样的热力图都是可以的。</p>
+
+<p>有印象的小伙伴应该记得曾几何时做闵行学生数据的时候，出过这么一张图：</p>
+
+<p><img src="img/charts/05/02.png" class="position"></img></p>
+<span class="caption text-muted">图2 闵行区学校肥胖率研究热力图</span>
+
+<p>这个是用Excel插件Power Map实现的，在Excel2016里，已经成为自带组件了，不过这里讲的是ECharts，所以Excel的相关部分请参考别人家的博客（reference里面有一条可以点进去看看）。</p>
+
+<p>是不是看的有点心动，那就行动起来吧，自己也可以动手试试：</p>
+
+
+<h2 class="section-heading">Heatmap in ECharts</h2>
+
+<p>对于ECharts这种代码形式的网站，像我这种没基础的说它什么好呢？不过还好，目前的水平还应该勉强足以支撑。</p>
+
+
+<!-- <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span></p> -->
+
+<p>又到惯例时刻，我知道的，先出成品：</p>
+
+<div >
+<img src="img/charts/05/03.jpg" style="width:700px;height:400px;position:absolute;margin-left:4%">
+<div style="height:400px;width:700px;margin-left:4%"></div></div>
+<br/>
+<span class="caption text-muted">图3 ECharts热力图示意（刷新无惊喜）</span>
+
+
+<p>那么，要怎么才能做成这个热力图呢？首先，你要有个底图，然后你要有一堆数据，然后，把数据贴到相应的地方，两个图拼一拼就好了。</p>
+
+<p>是不是太笼统了？那就步骤分解下：</p>
+
+<ol>
+<li><strong>找底图</strong></li>
+<p>好吧，这时候是展示功力的时候了，可以到各种你喜欢的网页上找图，像我这种没节操的自然选的是暴走表情。</p>
+<p><img src="img/charts/05/04.jpg" class="position"></img></p>
+<span class="caption text-muted">图4 主要看气质</span>
+<p>别问我最后为啥是德田有希风格的，我也不知道。</p>
+<li><strong>画热力图</strong></li>
+<p>由于手头没有眼动仪（其实是懒得用了），那么我就大致确定下热区的位置，从这张图看来，文字肯定是焦点，还有耳光和手。于是就可以做热力图了。</p>
+<p>先来段代码：</p>
+<pre>
+var heatData = [];
+for (var i = 0; i < 20; ++i) {
+    heatData.push([
+        150 + Math.random() * 50,
+        200 + Math.random() * 100,
+        Math.random()
+    ]);
+}
+for (var i = 0; i < 20; ++i) {
+    heatData.push([
+        200 + Math.random() * 50,
+        350 + Math.random() * 100,
+        Math.random()
+    ]);
+}
+for (var i = 0; i < 20; ++i) {
+    heatData.push([
+        50 + Math.random() * 120,
+        40 + Math.random() * 60,
+        Math.random()
+    ]);
+}
+for (var i = 0; i < 20; ++i) {
+    heatData.push([
+        250 + Math.random() * 120,
+        40 + Math.random() * 60,
+        Math.random()
+    ]);
+}
+for (var i = 0; i < 100; ++i) {
+    heatData.push([
+        Math.random() * 400,
+        Math.random() * 400,
+        Math.random() * 0.1
+    ]);
+}
+option = {
+    title : {
+        text: ''
+    },
+    series : [
+        {
+            type : 'heatmap',
+            data : heatData,
+            hoverable : true
+        }
+    ]
+};
+</pre>
+
+<p>以上代码运行后就可以得到下图（不行也没办法）：</p>
+<div id="main2" style="height:400px;width:400px;margin:auto"></div>
+
+<span class="caption text-muted">图5 ECharts无底热力图（刷新有惊喜）</span>
+
+<script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'js/echarts/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+
+                'echarts/chart/heatmap', // 使用柱状图就加载bar模块，按需加载
+
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main2')); 
+                
+			var heatData = [];
+			for (var i = 0; i < 20; ++i) {
+				heatData.push([
+					150 + Math.random() * 50,
+					200 + Math.random() * 100,
+					Math.random()
+				]);
+			}
+			for (var i = 0; i < 20; ++i) {
+				heatData.push([
+					200 + Math.random() * 50,
+					350 + Math.random() * 100,
+					Math.random()
+				]);
+			}
+			for (var i = 0; i < 20; ++i) {
+				heatData.push([
+					50 + Math.random() * 120,
+					40 + Math.random() * 60,
+					Math.random()
+				]);
+			}
+			for (var i = 0; i < 20; ++i) {
+				heatData.push([
+					250 + Math.random() * 120,
+					40 + Math.random() * 60,
+					Math.random()
+				]);
+			}
+			
+			
+			for (var i = 0; i < 100; ++i) {
+				heatData.push([
+					Math.random() * 400,
+					Math.random() * 400,
+					Math.random() * 0.1
+				]);
+			}
+			option = {
+				title : {
+					text: ''
+				},
+				series : [
+					{
+						type : 'heatmap',
+						data : heatData,
+						hoverable : true
+					}
+				]
+			};
+
+        
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            }
+        );
+</script>
+
+
+<li><strong>爱拼才会赢</strong></li>
+
+<p>然后写到网页里，两个图拼在一起就行了：</p>
+<pre>
+&lt;div&gt;
+&lt;img src="img/charts/05/04.jpg" style="width:400px;height:400px;position:absolute;margin-left:23%"&gt;
+&lt;div id="main3" style="height:400px;width:400px;margin-left:23%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;br/&gt;
+&lt;span class="caption text-muted"&gt;图6 ECharts合成热力图（刷新有惊喜）&lt;/span&gt;
+&lt;script type="text/javascript"&gt;
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'js/echarts/build/dist'
+            }
+        });
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/heatmap', // 按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main3')); 
+         
+                var heatData = [];
+				for (var i = 0; i < 20; ++i) {
+					heatData.push([
+						150 + Math.random() * 50,
+						200 + Math.random() * 100,
+						Math.random()
+					]);
+				}
+				for (var i = 0; i < 20; ++i) {
+					heatData.push([
+						200 + Math.random() * 50,
+						350 + Math.random() * 100,
+						Math.random()
+					]);
+				}
+				for (var i = 0; i < 20; ++i) {
+					heatData.push([
+						50 + Math.random() * 120,
+						40 + Math.random() * 60,
+						Math.random()
+					]);
+				}
+				for (var i = 0; i < 20; ++i) {
+					heatData.push([
+						250 + Math.random() * 120,
+						40 + Math.random() * 60,
+						Math.random()
+					]);
+				}
+				
+				
+				for (var i = 0; i < 100; ++i) {
+					heatData.push([
+						Math.random() * 400,
+						Math.random() * 400,
+						Math.random() * 0.1
+					]);
+				}
+				option = {
+					title : {
+						text: ''
+					},
+					series : [
+						{
+							type : 'heatmap',
+							data : heatData,
+							hoverable : true
+						}
+					]
+				};
+    
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            }
+        );
+&lt;/script&gt;
+</pre>
+
+
+<div >
+<img src="img/charts/05/04.jpg" style="width:400px;height:400px;position:absolute;margin-left:23%">
+<div id="main3" style="height:400px;width:400px;margin-left:23%"></div>
+</div>
+<br/>
+<span class="caption text-muted">图7 ECharts合成热力图（刷新有惊喜）</span>
+<script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'js/echarts/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+
+                'echarts/chart/heatmap', // 使用柱状图就加载bar模块，按需加载
+
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main3')); 
+                
+                var heatData = [];
+				for (var i = 0; i < 20; ++i) {
+					heatData.push([
+						150 + Math.random() * 50,
+						200 + Math.random() * 100,
+						Math.random()
+					]);
+				}
+				for (var i = 0; i < 20; ++i) {
+					heatData.push([
+						200 + Math.random() * 50,
+						350 + Math.random() * 100,
+						Math.random()
+					]);
+				}
+				for (var i = 0; i < 20; ++i) {
+					heatData.push([
+						50 + Math.random() * 120,
+						40 + Math.random() * 60,
+						Math.random()
+					]);
+				}
+				for (var i = 0; i < 20; ++i) {
+					heatData.push([
+						250 + Math.random() * 120,
+						40 + Math.random() * 60,
+						Math.random()
+					]);
+				}
+				
+				
+				for (var i = 0; i < 100; ++i) {
+					heatData.push([
+						Math.random() * 400,
+						Math.random() * 400,
+						Math.random() * 0.1
+					]);
+				}
+				option = {
+					title : {
+						text: ''
+					},
+					series : [
+						{
+							type : 'heatmap',
+							data : heatData,
+							hoverable : true
+						}
+					]
+				};
+
+        
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            }
+        );
+</script>
+</ol>
+
+
+<p>整体上还是比较简单的，主要就看自己的用途。</p>
+
+
+<!-- <p style="color:gray"><strong>tips:</strong><small><i>上图用数据透视表即可实现。以学生为行，学年为列，成绩为值，计算使用默认的求和即可。</i></small></p> -->
+
+<p>这里因为是随机数，所以看起来代码比较简单，以后要是能够有确切的数值，也是可以自行填写上去的。</p>
+
+
+<h2 class="section-heading">Examples</h2>
+
+<p>整体上，写的有点枯燥，而且视觉效果也并没有想象中的那么好。毕竟是一个抛砖引玉的文章，而且，最重要的是作图的人自己的想象力。</p>
+<p>所以，最后一个环节名为“别人家的孩子”，一起看看在这个丰富的世界中利用热力图有什么惊世骇俗的成品。</p>
+
+<p><img src="img/charts/05/ex01.png" class="position" style="width:80%"></img></p>
+<span class="caption text-muted">图ex1 来自百度百科</span>
+
+<p><img src="img/charts/05/ex02.jpg" class="position" style="width:80%"></img></p>
+<span class="caption text-muted">图ex2 中国骑行热力图</span>
+
+<p><img src="img/charts/05/ex03.jpg" class="position" style="width:80%"></img></p>
+<span class="caption text-muted">图ex3 Action Heat Map</span>
+
+<p><img src="img/charts/05/ex04.png" class="position" style="width:80%"></img></p>
+<span class="caption text-muted">图ex4 室内热感成像图</span>
+
+<p><img src="img/charts/05/ex05.jpg" class="position" style="width:80%"></img></p>
+<span class="caption text-muted">图ex5 dota2玩家位置热度图</span>
+
+<p><img src="img/charts/05/ex06.png" class="position" style="width:80%"></img></p>
+<span class="caption text-muted">图ex6 男女性棒球热力图</span>
+<hr>
+
+
+<br/>
+<p><strong>结束语：</strong>看了这么多例子，是不是觉得热力图特别cool？其实，很多时候，使用热力图的思维模式并不是因图而作图，而是需要我们仅仅把它看做一个图层，一个能用于各种底图的透明色而已。所以，发挥你的想象力吧，在各种各样的领域中，热力图都一样会发光发亮。</p>
+<p>毕竟，最最最关键的是，热力图缺少的不是实现手段，而是数据量，这在大数据时代就根本不算什么了。</p>
+
+
+
+
+<h2 class="section-heading">Reference</h2>
+
+ <a href="https://en.wikipedia.org/wiki/Heat_map" target="_blank">Wiki：Heat map</a><br/>
+<a href="http://echarts.baidu.com/doc/example/heatmap2.html" target="_blank">ECharts:热力图实例</a><br/>
+<a href="http://news.qq.com/a/20150514/033893.htm" target="_blank">Office发布2016新版，制图神技能亮瞎众人</a><br/>
+
+
+ <br/>
+
+<!-- <p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p> -->
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="charts_page4.html" data-toggle="tooltip" data-placement="top" title="上一篇：曲面图">&larr; Previous Blog</a>
+                    </li>
+                    
+<!--                      <li >
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Back to Top">Back to Top</a>
+                    </li>
+					 -->
+                    <li class="next">
+                        <a href="charts_page6.html" data-toggle="tooltip" data-placement="top" title="下一篇：事件河流图">Next Blog &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+			
+        </div>
+		
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!--                 <ul class="list-inline text-center">
+                    <li>
+                        <a href="feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/xyf2015">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul> -->
+                <p class="copyright text-muted">Copyright &copy; Psylife 2015</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/clean-blog.min.js "></script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PsyLife-data team">
+
+    <title>Theory Blog 7</title>
+
+    <link rel="canonical" href="/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="css/syntax.css">
+
+    <!-- Custom Fonts -->
+<!-- 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	 <style>
+    @media only screen and (min-width: 641px) {
+      .am-offcanvas {
+        display: block;
+        position: static;
+        background: none;
+      }
+
+      .am-offcanvas-bar {
+        position: static;
+        width: auto;
+        background: none;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      .am-offcanvas-bar:after {
+        content: none;
+      }
+
+    }
+
+    @media only screen and (max-width: 640px) {
+      .am-offcanvas-bar .am-nav>li>a {
+        color:#ccc;
+        border-radius: 0;
+        border-top: 1px solid rgba(0,0,0,.3);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05)
+      }
+
+      .am-offcanvas-bar .am-nav>li>a:hover {
+        background: #404040;
+        color: #fff
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-nav-header {
+        color: #777;
+        background: #404040;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+        text-shadow: 0 1px 0 rgba(0,0,0,.5);
+        border-top: 1px solid rgba(0,0,0,.3);
+        font-weight: 400;
+        font-size: 75%
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-active>a {
+        background: #1a1a1a;
+        color: #fff;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+      }
+
+      .am-offcanvas-bar .am-nav>li+li {
+        margin-top: 0;
+      }
+    }
+
+    .my-head {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .my-button {
+      position: fixed;
+      top: 0;
+      right: 0;
+      border-radius: 0;
+    }
+    .my-sidebar {
+      padding-right: 0;
+      border-right: 1px solid #eeeeee;
+    }
+
+    .my-footer {
+      border-top: 1px solid #eeeeee;
+      padding: 10px 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+		img.position{
+	margin:auto;
+	width:80%;
+	}
+	img.bq{
+	display:inline;
+	height:80px;
+	vertical-align:text-bottom;
+	}
+#customers
+  {
+  width:80%;
+  margin:auto;
+  border-collapse:collapse;
+  text-align:center;
+
+
+  }
+
+#customers td, #customers th
+  {
+  font-size:1em;
+  border:1px solid gray;
+  padding:3px 7px 2px 7px;
+  	vertical-align:middle;
+	  text-align:center;
+	  width:10%;
+  }
+
+#customers th{
+background-color:gray;
+color:white;
+
+}
+
+#customers tr.alt td 
+  {
+  color:#000000;
+  background-color:rgb(240,240,240);
+    width:20%;
+		vertical-align:middle;
+  }
+  </style>
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+<!--             <a class="navbar-brand" href="index.html">Back to Home</a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                
+                <li>
+                    <a href="http://www.psylife.cc/" target="_blank">About</a>
+                </li>
+                
+                <li>
+                    <a href="http://xyf2015.github.io/blog/" target="_blank">Contact</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('img/theory/07/01b.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>流量与存量</h1>
+                    
+                    <h2 class="subheading">逝者如斯夫，不舍昼夜</h2>
+                    
+                    <span class="meta">整理人：曾江南  &nbsp;&nbsp;&nbsp;&nbsp; 2015-01-13</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+ 
+<article>
+    <div class="container">
+	
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>初中的兴趣课程，我们通过分析两个学期选课比例的变化来分析兴趣课程的开设情况。</p>
+
+
+<!-- <pre>1111</pre> -->
+
+<h2 class="section-heading">兴趣课程的保有率和生命力</h2>
+
+<p>从流量和存量的角度分析课程情况，有两个学期都选择的课程比例作为存量，只选择一个学期的作为流量；</p>
+
+<p>存量描述为保有率，流量递增的情况是增长率，流量递减的情况是衰减率，增长率和衰减率的差值作为生命力。用保有率描述选课的基础比例，生命力描述选课比例的变化。</p>
+
+
+<h2 class="section-heading">第一步：分析模型的建立</h2>
+<p>首先，需要对所有变量进行定义：</p>
+<ul>
+<li><strong>保有率：</strong>两个学期都选的人数占选课人数的比例。</li>
+<li><strong>生命力：</strong>仅第二学期选的人数与仅第一学期选的人数的差值占选课人数的比例。</li>
+<ul>
+<li><strong>约束一：</strong>学校选课人数在学校总人数的比例不低于10%。</li>
+<li><strong>约束二：</strong>学校不同学期的选课的差异人数在学校总人数比例不高于10%。</li>
+</ul>
+</ul>
+<p>两个约束是为了对异常数据做一个预处理，排除一定的噪声干扰。</p>
+<p>具体公式如下：</p>
+<div style="border:1px solid rgb(200,200,200);width:80%;margin:auto">
+<span class="caption"><strong>公式 1 :</strong> 兴趣课程保有率 = 两学期都选择的人数 / 选课人数</span>
+<span class="caption"><strong>公式 2 :</strong> 兴趣课程生命力 = ( 仅二学期选课人数 - 仅一学期选课人数 ) / 选课人数</span>
+
+</div>
+
+
+<h2 class="section-heading">第二步：实际数据的测试</h2>
+<p>学校的数据可以做分年度、分学校、分类别的数据分析，分年度就是时间轴的分析，保有率和生命力的时间变化，分学校就是各学校的差异分析，分类别就是兴趣课程不同类的差异。</p>
+
+<ol>
+<li><strong>分学校数据情况：</strong></li>
+<p><img src="img/theory/07/02.png"/ class="position"></p>
+<span class="caption text-muted">图1 兴趣课程流动情况（保有率和生命力）</span>
+<p>看点：保有率在合理区间的时候，生命力在小范围区间。简言之：保有率变，生命力变。</p>
+<p>处于两端的学校保有率都比较低，课程选择流动性强。</p>
+
+<li><strong>分时间数据情况：</strong></li>
+<p><img src="img/theory/07/03.jpg"/ class="position"></p>
+<span class="caption text-muted">图2 外汇储备：流量与存量</span>
+<p>对于分时间的数据，可以看出学校的保有率是否已异常变化，生命力指标如何发展，（由于目前数据缺少长久的年度数据积累，用外汇的数据做个配图。）</p>
+
+<li><strong>分类别数据情况：</strong></li>
+<p>不同类别的保有率和生命力有较大差异，不同类别的约束的阈值设置会略有调整。</p>
+<p><img src="img/theory/07/04.png"/ class="position"></p>
+<span class="caption text-muted">图3 兴趣课程类别A的流动情况（保有率和生命力）</span>
+
+<p>类别A生命力的负值和正值较多且幅度较大，可见此科目较为活跃，选课的流动性强。</p>
+
+<p><img src="img/theory/07/05.png"/ class="position"></p>
+<span class="caption text-muted">图4 兴趣课程类别B的流动情况（保有率和生命力）</span>
+
+<p>类别B的生命力负值较多，正值偏少，可见此科目有下降趋势。</p>
+</ol>
+
+
+<h2 class="section-heading">个体分析</h2>
+<p>对个体学校而言，根据兴趣课程的生命力，呈现了不同的趋势：</p>
+<ol>
+<li><strong>老龄化：</strong></li>
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>学校</th>
+      <th>保有率</th>
+      <th>生命力</th>
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td style="background-color:rgb(244,244,244)">a1</td>	<td>23.19%</td>	<td>-39.83%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">a2</td>	<td>14.19%</td>	<td>-33.15%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">a3</td>	<td>57.44%</td>	<td>-27.73%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">a4</td>	<td>46.24%</td>	<td>-15.03%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">a5</td>	<td>13.98%</td>	<td>-13.47%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">a6</td>	<td>63.50%</td>	<td>-11.09%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">a7</td>	<td>88.51%</td>	<td>-10.04%</td>	</tr>
+	  </tbody>
+</table>
+<p>数据的生命力指标表现较大负值。可能没有剔除异常数据，造成大波动。</p>
+
+<li><strong>稳定期：</strong></li>
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>学校</th>
+      <th>保有率</th>
+      <th>生命力</th>
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td style="background-color:rgb(244,244,244)">b1</td>	<td>36.54%</td>	<td>-6.20%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">b2</td>	<td>79.03%</td>	<td>-6.04%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">b3</td>	<td>51.35%</td>	<td>-3.43%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">b4</td>	<td>84.85%</td>	<td>-3.03%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">b5</td>	<td>93.72%</td>	<td>-2.78%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">b6</td>	<td>64.76%</td>	<td>-2.12%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">b7</td>	<td>85.36%</td>	<td>-2.00%</td>	</tr>
+
+	  </tbody>
+</table>
+<p>数据的生命力指标表现较低负值。可以反映兴趣课程呈现发展弱势。</p>
+
+<li><strong>成长期：</strong></li>
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>学校</th>
+      <th>保有率</th>
+      <th>生命力</th>
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td style="background-color:rgb(244,244,244)">c1</td>	<td>98.66%</td>	<td>0.26%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">c2</td>	<td>99.69%</td>	<td>0.31%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">c3</td>	<td>43.39%</td>	<td>0.61%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">c4</td>	<td>98.81%</td>	<td>1.19%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">c5</td>	<td>27.60%</td>	<td>4.69%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">c6</td>	<td>5.63%</td>	<td>4.75%</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">c7</td>	<td>19.42%</td>	<td>5.52%</td>	</tr>
+
+
+	  </tbody>
+</table>
+
+<p>数据的生命力指标表现较低正值。可以反映兴趣课程呈现发展强势。</p>
+</ol>
+
+<p>由于实际数据没有出现生命力指标表现较高正值的情况，故不作分析。</p>
+<br/>
+<p><strong>结束语：</strong></p>
+<p>这篇分析算是一种全新的尝试，把兴趣课程的流动情况与社会形态的生老病死进行类比。借用他们的相关指标对教育行业进行解释。</p>
+<p>将来，也会有更多的尝试，将不同领域的方法综合应用。</p>
+
+
+<h2 class="section-heading">Reference</h2>
+
+ <p>
+ <a href="http://www.bjhgk.gov.cn/ww/QueryZsydAction!getZsydDital?zsydCode=054" target="_blank">政府数据库：流量与存量</a><br/>
+  <a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E5%90%88%E8%AE%BA" target="_blank">Wiki：集合论</a>
+ </p>
+
+  
+ 
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="theory_page6.html" data-toggle="tooltip" data-placement="top" title="上一篇：GAMLSS">&rarr; Previous Blog</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="continue.html" data-toggle="tooltip" data-placement="top" title="下一篇：(敬请期待)">Next Blog &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+			
+        </div>
+		
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!--                 <ul class="list-inline text-center">
+                    <li>
+                        <a href="feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/xyf2015">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul> -->
+                <p class="copyright text-muted">Copyright &copy; Psylife 2015</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PsyLife-data team">
+
+    <title>Theory Blog 4</title>
+
+    <link rel="canonical" href="/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="css/syntax.css">
+
+    <!-- Custom Fonts -->
+<!-- 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	 <style>
+    @media only screen and (min-width: 641px) {
+      .am-offcanvas {
+        display: block;
+        position: static;
+        background: none;
+      }
+
+      .am-offcanvas-bar {
+        position: static;
+        width: auto;
+        background: none;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      .am-offcanvas-bar:after {
+        content: none;
+      }
+
+    }
+
+    @media only screen and (max-width: 640px) {
+      .am-offcanvas-bar .am-nav>li>a {
+        color:#ccc;
+        border-radius: 0;
+        border-top: 1px solid rgba(0,0,0,.3);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05)
+      }
+
+      .am-offcanvas-bar .am-nav>li>a:hover {
+        background: #404040;
+        color: #fff
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-nav-header {
+        color: #777;
+        background: #404040;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+        text-shadow: 0 1px 0 rgba(0,0,0,.5);
+        border-top: 1px solid rgba(0,0,0,.3);
+        font-weight: 400;
+        font-size: 75%
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-active>a {
+        background: #1a1a1a;
+        color: #fff;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+      }
+
+      .am-offcanvas-bar .am-nav>li+li {
+        margin-top: 0;
+      }
+    }
+
+    .my-head {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .my-button {
+      position: fixed;
+      top: 0;
+      right: 0;
+      border-radius: 0;
+    }
+    .my-sidebar {
+      padding-right: 0;
+      border-right: 1px solid #eeeeee;
+    }
+
+    .my-footer {
+      border-top: 1px solid #eeeeee;
+      padding: 10px 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+		img.position{
+	margin:auto;
+	width:80%;
+	}
+	img.bq{
+	display:inline;
+	height:80px;
+	vertical-align:text-bottom;
+	}
+#customers
+  {
+  width:80%;
+  margin:auto;
+  border-collapse:collapse;
+  text-align:center;
+
+
+  }
+
+#customers td, #customers th
+  {
+  font-size:1em;
+  border:1px solid gray;
+  padding:3px 7px 2px 7px;
+  	vertical-align:middle;
+	  text-align:center;
+	  width:10%;
+  }
+
+#customers th{
+background-color:gray;
+color:white;
+
+}
+
+#customers tr.alt td 
+  {
+  color:#000000;
+  background-color:rgb(240,240,240);
+    width:20%;
+		vertical-align:middle;
+  }
+  </style>
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+<!--             <a class="navbar-brand" href="index.html">Back to Home</a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                
+                <li>
+                    <a href="http://www.psylife.cc/" target="_blank">About</a>
+                </li>
+                
+                <li>
+                    <a href="http://xyf2015.github.io/blog/" target="_blank">Contact</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('img/theory/04/01b.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>信号检测论</h1>
+                    
+                    <h2 class="subheading">你知道吗？其实获奖还可以这么算</h2>
+                    
+                    <span class="meta">整理人：曾江南  &nbsp;&nbsp;&nbsp;&nbsp; 2015-01-13</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+ 
+<article>
+    <div class="container">
+	
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p></p>
+
+
+<!-- <pre>1111</pre> -->
+
+<h2 class="section-heading">信号检测论</h2>
+
+<p>学校举办社团活动和学生竞赛获奖之间存在一定的联系。因此，可以将其和信号检测论的相关理论相结合。通过信号检测论，我们可以把获奖的记录作为检测信号，参加社团作为事件驱动因子，并可以定义四类对象。</p>
+<ul>
+<li>参加社团同时获奖的记录作为<strong>有效信号</strong></li>
+<li>参加社团但未获奖的记录作为<strong>虚报信号</strong></li>
+<li>未参加社团但获奖的记录作为<strong>漏报信号</strong></li>
+<li>未参加社团也未获奖的记录作为<strong>无信号</strong></li>
+</ul>
+<p>有效信号与事件驱动因子的比率作为有效率（有效驱动）。同样的，有效信号与检测信号的比率作为匹配率。要提高有效率，需要增加参加社团同时获奖的人数，降低参加社团未获奖的人数；要提高匹配率，需要提高参加社团同时获奖的人数，降低没有参加社团同时获奖的人数。</p>
+<p>可以参照下图：</p>
+
+<p><img src="img/theory/04/02.png"/ class="position"></p>
+<span class="caption text-muted">图1 信号检测论图示</span>
+
+<h2 class="section-heading">第一步：分析模型的建立</h2>
+
+<p>基于上文中提到的相关内容，我们可以形成这样一张2×2的矩阵表。</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+      <th> </th>
+      <th>获奖</th>
+      <th>未获奖</th>
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td style="background-color:rgb(244,244,244)">参加社团</td>	<td>有效（A）</td>	<td>无效（B）</td></tr>
+<tr>	<td style="background-color:rgb(244,244,244)">未参加社团</td>	<td>额外（C）</td>	<td>无关（D）</td></tr>
+	  </tbody>
+</table>
+
+<p>如上表，获奖率、有效率和匹配率的计算公式分别为：</p>
+
+<div style="border:1px solid rgb(200,200,200);width:80%;margin:auto">
+<span class="caption"><strong>公式 1 :</strong> 获奖率 = ( A + C ) / ( A + B + C + D )</span>
+<span class="caption"><strong>公式 2 :</strong> 有效率 = A / ( A + B )</span>
+<span class="caption"><strong>公式 3 :</strong> 匹配率 = A / ( A + C )</span>
+</div>
+
+<p>不妨先使用虚拟数据验证下获奖率和有效率以及匹配率之间的关系：</p>
+
+<p>以两个学生数量均为500人的学校为例比较，已知学校1的情况为：</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>学校1</th>
+      <th>获奖</th>
+      <th>未获奖</th>
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td style="background-color:rgb(244,244,244)">参加社团</td>	<td>10</td>	<td>80</td></tr>
+<tr>	<td style="background-color:rgb(244,244,244)">未参加社团</td>	<td>10</td>	<td>400</td></tr>
+	  </tbody>
+</table>
+<p>可以得到学校1的计算结果：<br/>
+<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;获奖率</strong>=(10+10)/(10+80+10+400)=4.00%;<br/>
+<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有效率</strong>=10/(10+80)=11.11%;<br/>
+<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配率</strong>=10/(10+10)=50.00%。</p>
+<p>已知学校2的情况为：</p>
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>学校2</th>
+      <th>获奖</th>
+      <th>未获奖</th>
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td style="background-color:rgb(244,244,244)">参加社团</td>	<td>5</td>	<td>25</td></tr>
+<tr>	<td style="background-color:rgb(244,244,244)">未参加社团</td>	<td>0</td>	<td>470</td></tr>
+	  </tbody>
+</table>
+<p>可以得到学校2的计算结果：<br/>
+<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;获奖率</strong>=(5+0)/(5+25+0+470)=1.00%;<br/>
+<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有效率</strong>=5/(5+25)=16.66%;<br/>
+<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配率</strong>=5/(5+0)=100.00%。</p>
+
+<p>通过计算结果可以看到，学校2的获奖率比学校1稍低，但是在有效率和匹配率方面处于优势。以此可以看到有效率和匹配率与获奖率之间并不存在一一对应的关系。</p>
+
+<h2 class="section-heading">第二步：实际数据的测试</h2>
+<!-- <blockquote>The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote> -->
+
+<p>既然已经建立了计算分析的模型，因此需要实际的数据进行操作和计算，最终得到如下结果：</p>
+
+<p><img src="img/theory/04/03.png"/ class="position"></p>
+<span class="caption text-muted">图2 计算结果a</span>
+
+<p>2014学年，学生的获奖率8.28%，参加社团活动的有效率13.50%，参加社团活动的匹配率6.17%。相较于2012学年和2013学年，获奖率呈现小幅上升趋势，有效率在2014学年大幅下降，匹配率呈现良好的上升趋势。</p>
+
+<h2 class="section-heading">第三步：数据结果的分析</h2>
+
+
+<p><strong>获奖率</strong>的上升，反映获奖的学生人数在所有学生中的比例有所提升，可能是学校鼓励和学生积极的情况。<br/>
+<strong>有效率</strong>反映参加社团活动并获奖的学生在参加社团活动的学生中的比例，一定程度反映参加社团活动的学生的获奖情况；<br/>
+<strong>匹配率</strong>反映参加社团活动并获奖的学生在获奖学生中的比例，一定程度反映社团活动在获奖学生中的覆盖情况可以看出在2012学年至2014学年，社团活动的在获奖学生中的匹配逐年增加。</p>
+
+<h2 class="section-heading">第四步：数据结果的拓展</h2>
+<p>但是，考虑到学校除了社团还有很多拓展型课程（俗称兴趣课程），所以，如果在换一个角度考虑问题的话，是不是又能变成：那些没有参加社团但是获奖的学生是不是因为他们有报了相关的兴趣班所以对他们的成长更有利呢？</p>
+<p>重复以上步骤，得到如下结果：</p>
+
+<p><img src="img/theory/04/04.png"/ class="position"></p>
+<span class="caption text-muted">图3 计算结果b</span>
+
+<p>如上图所示，2014学年，学生的获奖率8.28%，参加走班制兴趣课程和社团活动的有效率7.09%，参加走班制兴趣课程和社团活动的匹配率46.33%。相较于2012学年和2013学年，获奖率呈现小幅上升趋势，有效率呈现小幅波动，匹配率在2014学年大幅下降。其中</p>
+<p>
+<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;获奖率</strong>的上升，反映获奖的学生人数在所有学生中的比例有所提升，可能是学校鼓励和学生积极的情况。;<br/>
+<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有效率</strong>反映参加社团活动并获奖的学生在参加社团活动的学生中的比例，一定程度反映参加社团活动的学生的获奖情况。<br/>
+<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配率</strong>反映参加社团活动并获奖的学生在获奖学生中的比例，一定程度反映社团活动在获奖学生中的覆盖情况。</p>
+
+<p>最后，将两次计算的结果对比：得到下表：</p>
+<table id = "customers">
+ <thead>
+    <tr>
+      <th> </th>
+	  <th>类型</th>
+      <th>2012</th>
+      <th>2013</th>
+	  <th>2014</th>
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td style="background-color:rgb(244,244,244)">获奖率(%)</td>	<td>/</td><td>7.13</td>	<td>8.13</td><td>8.28</td></tr>  
+<tr class = "alt">	<td rowspan = 2 style="background-color:rgb(244,244,244)">有效率(%)</td><td>参加社团</td><td>19.97</td>	<td>25.17</td><td>13.50</td></tr>
+<tr>	<td>参加兴趣课</td><td>7.09</td>	<td>8.10</td><td>7.09</td></tr>
+<tr class = "alt">	<td rowspan = 2 style="background-color:rgb(244,244,244)">匹配率(%)</td><td>参加社团</td><td>2.80</td><td>4.27</td><td>6.17</td></tr>
+<tr>	<td>参加兴趣课</td><td>74.62</td>	<td>76.18</td><td>46.33</td></tr>
+
+	  </tbody>
+</table>
+
+<p>其实差距还是相当大的，在只算社团的情况下，有效率明显更高、匹配率相对较低，这一结论其实很容易理解，兴趣课的覆盖面几乎是全体学生，而社团相对较少，所以相对的，参加竞赛的学生哪怕没有参加社团，参加兴趣课程几乎是一定的。</p>
+<br/>
+<p><strong>结束语：</strong></p>
+<p>这个结论足够了吗？其实并没有，从悲观的视角来看，实际上，哪怕是算上了上兴趣课的学生，匹配率依然没有达到100%。这着实令人惊讶，那么，究竟这些“民间高手”们去哪里了呢？由此可能引申出几个关键问题：</p>
+
+<ul>
+<li>是否家长认为学校里的教育水平不足，所以把孩子的兴趣培养寄托在校外的兴趣班上？</li>
+<li>学校方面的数据是否存在问题？</li>
+<li>学校实际上并不能真正的筛选在某方面有潜力的学生吗？</li>
+<li>评奖的部门是否真的做到了公平公正？或者说，竞赛评奖的标准究竟是什么？</li>
+</ul>
+<p>这些类似的问题自然没有办法在本文中解决了，需要进一步的研究。而且不少问题实际上可能和教育的方方面面有关。路还长，仍需努力啊...</p>
+
+
+
+<h2 class="section-heading">Reference</h2>
+
+ <p><a href="http://www.pep.com.cn/xgjy/xlyj/xlshuku/xlsk1/115/syxlx/201008/t20100818_662518_2.htm" target="_blank">心理研究：信号检测论</a></p>
+
+  
+ 
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="theory_page3.html" data-toggle="tooltip" data-placement="top" title="上一篇：高斯聚类">&rarr; Previous Blog</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="theory_page5.html" data-toggle="tooltip" data-placement="top" title="下一篇：ICC">Next Blog &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+			
+        </div>
+		
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!--                 <ul class="list-inline text-center">
+                    <li>
+                        <a href="feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/xyf2015">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul> -->
+                <p class="copyright text-muted">Copyright &copy; Psylife 2015</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>

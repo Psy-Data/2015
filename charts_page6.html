@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PsyLife-data team">
+
+    <title>Chart Blog 6</title>
+
+    <link rel="canonical" href="/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="css/syntax.css">
+
+    <!-- Custom Fonts -->
+<!-- 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	 <style>
+    @media only screen and (min-width: 641px) {
+      .am-offcanvas {
+        display: block;
+        position: static;
+        background: none;
+      }
+
+      .am-offcanvas-bar {
+        position: static;
+        width: auto;
+        background: none;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      .am-offcanvas-bar:after {
+        content: none;
+      }
+
+    }
+
+    @media only screen and (max-width: 640px) {
+      .am-offcanvas-bar .am-nav>li>a {
+        color:#ccc;
+        border-radius: 0;
+        border-top: 1px solid rgba(0,0,0,.3);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05)
+      }
+
+      .am-offcanvas-bar .am-nav>li>a:hover {
+        background: #404040;
+        color: #fff
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-nav-header {
+        color: #777;
+        background: #404040;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+        text-shadow: 0 1px 0 rgba(0,0,0,.5);
+        border-top: 1px solid rgba(0,0,0,.3);
+        font-weight: 400;
+        font-size: 75%
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-active>a {
+        background: #1a1a1a;
+        color: #fff;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+      }
+
+      .am-offcanvas-bar .am-nav>li+li {
+        margin-top: 0;
+      }
+    }
+
+    .my-head {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .my-button {
+      position: fixed;
+      top: 0;
+      right: 0;
+      border-radius: 0;
+    }
+    .my-sidebar {
+      padding-right: 0;
+      border-right: 1px solid #eeeeee;
+    }
+
+    .my-footer {
+      border-top: 1px solid #eeeeee;
+      padding: 10px 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+	img.position{
+	margin:auto;
+	}
+	img.bq{
+	display:inline;
+	height:80px;
+	vertical-align:text-bottom;
+	}
+#customers
+  {
+  width:100%;
+  border-collapse:collapse;
+  text-align:center;
+
+
+  }
+
+#customers td, #customers th
+  {
+  font-size:1em;
+  border:1px solid gray;
+  padding:3px 7px 2px 7px;
+  	vertical-align:middle;
+	  text-align:center;
+	  width:10%;
+  }
+
+#customers th{
+background-color:gray;
+color:white;
+
+}
+
+#customers tr.alt td 
+  {
+  color:#000000;
+  background-color:rgb(240,240,240);
+    width:10%;
+		vertical-align:middle;
+  }
+ 
+/*.navbar-custom .nav li a:hover, .navbar-custom .nav li a:focus {
+color: rgba(149, 149, 149, 0.8);}
+.navbar-custom .nav li a {
+color: rgba(80, 80, 80, 0.8);
+padding: 20px;
+}*/
+  </style>
+<script src="js/echarts/build/dist/echarts.js" type="text/javascript"></script>
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+<!--             <a class="navbar-brand" href="index.html">Back to Home</a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="index0.html">Home</a>
+                </li>
+                
+                <li>
+                    <a href="http://www.psylife.cc/" target="_blank">About</a>
+                </li>
+                
+                <li>
+                    <a href="http://xyf2015.github.io/blog/" target="_blank" >Contact</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('img/charts/06/01.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Echarts系列之——事件河流图</h1>
+                    
+                    <h2 class="subheading">滚滚长江都是水</h2>
+                    
+                    <span class="meta">整理人：曾江南  &nbsp;&nbsp;&nbsp;&nbsp; 2016-01-12</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+ 
+<article>
+    <div class="container">
+	
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>最早的时候，图表是一种流传于研究者内部的表达形式，方便交流，常常出现在各种专业的研究报告里。会让人有一种错觉：图表那都是高级货。而大多普通民众接触的主要是文字，而图片也多是照片一类的证据罢了。</p>
+				<p>时至今日，随着数据的兴起，数字表格和图表已经进入了寻常百姓家中，也由此衍生出了一个新兴词汇——数据可视化。</p>
+				<p>于是，图表的地位开始日渐凸显，那么关于图表如何更加直观和美观地表达出来显然自然成为了一个热点。所以，打开网页搜索数据可视化的时候，我们开始能接触到越来越多的创意性图表。</p>
+				<p>本文将要介绍的就是一种全新的表达方式，那么进入主题：<strong>Echarts系列之——事件河流图</strong>。</p>
+		
+
+<h2 class="section-heading">事件河流图是什么？</h2>
+
+<p>事件河流图有个非常洋气的英文名：Event River。然后我以这个为关键词去搜索，发现了一个事实，搜索不到国外的网站。大约这个图表是国人发明的吧？</p>
+
+<!-- <blockquote>A <strong>heat map</strong> is a graphical representation of data where the individual values contained in a matrix are represented as colors. Fractal maps and tree maps both often use a similar system of color-coding to represent the values taken by a variable in a hierarchy. The term is also used to mean its thematic application as a choropleth map.</blockquote> -->
+
+<p>（国人发明的就好办了，就没有翻译的问题了，反正我随便说啥也没关系）</p>
+
+<p>所以说，事件河流图就是一种用时间轴凸显事件发生情况的图表。如果觉得比较抽象的话，先上图：</p>
+
+<div id="main1" style="height:400px;width:700px;margin：auto"></div>
+<br/>
+<span class="caption text-muted">图1 ECharts事件河流图示意</span>
+<script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'js/echarts/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+
+                'echarts/chart/eventRiver', // 使用柱状图就加载bar模块，按需加载
+
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main1')); 
+                
+              option = {
+    title : {
+        text: 'Event River',
+        subtext: '纯属虚构'
+    },
+    tooltip : {
+        trigger: 'item',
+        enterable: true
+    },
+    legend: {
+        data:['财经事件', '政治事件']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    xAxis : [
+        {
+            type : 'time',
+            boundaryGap: [0.05,0.1]
+        }
+    ],
+    series : [
+        {
+            name: "财经事件", 
+            "type": "eventRiver", 
+            weight: 123, 
+            "data": [
+                {
+                    name: "阿里巴巴上市", 
+                    weight: 123, 
+                    evolution: [
+                        {
+                            "time": "2014-05-01", 
+                            "value": 14, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-02", 
+                            "value": 34, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-03", 
+                            "value": 60, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-04", 
+                            "value": 40, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-05", 
+                            "value": 10, 
+                            
+                        }
+                    ]
+                }, 
+                {
+                    name: "阿里巴巴上市2", 
+                    weight: 123, 
+                    evolution: [
+                        {
+                            "time": "2014-05-02", 
+                            "value": 10, 
+
+                        }, 
+                        {
+                            "time": "2014-05-03", 
+                            "value": 34, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-04", 
+                            "value": 40, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-05", 
+                            "value": 10, 
+                            
+                        }
+                    ]
+                }, 
+                {
+                    name: "三星业绩暴跌", 
+                    weight: 123, 
+                    evolution: [
+                        {
+                            "time": "2014-05-03", 
+                            "value": 24, 
+
+                        }, 
+                        {
+                            "time": "2014-05-04", 
+                            "value": 34, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-05", 
+                            "value": 50, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-06", 
+                            "value": 30, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-07", 
+                            "value": 20, 
+                            
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            name: "政治事件", 
+            "type": "eventRiver", 
+            weight: 123, 
+            "data": [
+                {
+                    name: "Apec峰会", 
+                    weight: 123, 
+                    evolution: [
+                        {
+                            "time": "2014-05-06", 
+                            "value": 14, 
+
+                        }, 
+                        {
+                            "time": "2014-05-07", 
+                            "value": 34, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-08", 
+                            "value": 60, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-09", 
+                            "value": 40, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-10", 
+                            "value": 20, 
+                            
+                        }
+                    ]
+                }, 
+                {
+                    name: "运城官帮透视", 
+                    weight: 123, 
+                    evolution: [
+                        {
+                            "time": "2014-05-08", 
+                            "value": 4, 
+
+                        }, 
+                        {
+                            "time": "2014-05-09", 
+                            "value": 14, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-10", 
+                            "value": 30, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-11", 
+                            "value": 20, 
+                            
+                        }, 
+                        {
+                            "time": "2014-05-12", 
+                            "value": 10, 
+                            
+                        }
+                    ]
+                }, 
+                {
+                    name: "底层公务员收入超过副部长", 
+                    weight: 123, 
+                    evolution: [
+                        {
+                            "time": "2014-05-11", 
+                            "value": 4, 
+
+                        }, 
+                        {
+                            "time": "2014-05-12", 
+                            "value": 24, 
+
+                        }, 
+                        {
+                            "time": "2014-05-13", 
+                            "value": 40, 
+
+
+                        }, 
+                        {
+                            "time": "2014-05-14", 
+                            "value": 20, 
+
+                        }, 
+                        {
+                            "time": "2014-05-15", 
+                            "value": 15, 
+
+                        }, 
+                        {
+                            "time": "2014-05-16", 
+                            "value": 10, 
+
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+};
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            }
+        );
+</script>
+
+
+<p>这是ECharts上的示例图表，具体来说，就是百度研究了自己的新闻点击数据，首先分了个类，然后在不同日期看这些新闻点击数量的变化。</p>
+
+<p>举个例子来说，阿里巴巴上市最早在2014年5月1日，但是关注的人不多，然后后面几天大家开始关注了，到同年5月3日达到最高峰，之后开始衰减。到5月5日之后就鲜有关注了。</p>
+
+<p>这段描述可以和数据相关的代码一起看：</p>
+
+<pre>
+{
+    name: "阿里巴巴上市", 
+    weight: 123, 
+    evolution: [
+        {
+            "time": "2014-05-01", 
+            "value": 14,             
+        }, 
+        {
+            "time": "2014-05-02", 
+            "value": 34,             
+        }, 
+        {
+            "time": "2014-05-03", 
+            "value": 60,             
+        }, 
+        {
+            "time": "2014-05-04", 
+            "value": 40,             
+        }, 
+        {
+            "time": "2014-05-05", 
+            "value": 10,             
+        }
+    ]
+}
+</pre>
+
+<p>上面一段代码就是“阿里巴巴上市”这个新闻在几天内的变化情况，具体如下：</p>
+
+<ul>
+
+<li><strong>name:</strong>这一事件的名称</li>
+<li><strong>weight:</strong>这一事件的权重（决定了其在图片上的位置高低）</li>
+<li><strong>time:</strong>这一事件发生的时间</li>
+<li><strong>value:</strong>这一事件的指数</li>
+</ul>
+
+
+
+<p>总体来说，事件河流图的2大要素就是：时间、指数，通过组合形成这一图表。</p>
+
+
+
+
+<h2 class="section-heading">如何制作事件河流图？</h2>
+
+<p>上面的内容已经大致上把事件河流图的一些要素介绍清楚了。而具体如何制作也有了基本陈述，相信以大家的聪明才智，想要复刻一套图表完全不在话下。</p>
+
+<p>但是，对于数据的分析人员而言，掌握事件河流图的制作方式只能仅仅当成一种工具来用，更重要的是如何把这个方法应用到实际的数据分析中去，所以，这里我会结合具体用例呈现。</p>
+<!-- <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span></p> -->
+
+<p>老规矩，先上图。</p>
+
+<p><img src="img/charts/06/02.png" class="position" style="width:80%"></img></p>
+<span class="caption text-muted">图2 事件河流图a——读书节</span>
+
+<p><img src="img/charts/06/04.png" class="position" style="width:80%"></img></p>
+<span class="caption text-muted">图3 事件河流图b——艺术节</span>
+
+
+<p>是不是觉得有点污？都是一坨一坨的。嗯，其实我也这么觉得。</p>
+
+<p>还是先解释下吧，实际上这个图是关于闵行区所有学生在2014-2015学年中四节活动（读书节、体育节、艺术节、科技节）随时间变化的开展情况的事件河流图。通过读书节和艺术节的对比，</p>
+<p>可以明显看到，读书节开展参差不齐，活动开始什么时间点都有，而活动时间也是千奇百怪，甚至有很多是延续一个学期甚至横跨两个学期的；相对而言，艺术节就比较集中了，而且持续时间也先对更短，基本上就是1个月内肯定搞定了的。</p>
+
+<p>这边就简单做个还原吧。也就是从原始数据到成图的过程，以一个学校的艺术节为例：</p>
+
+<ol>
+<li><strong>选择数据</strong></li>
+<p>首先，找到主题活动数据表，取三个字段：体验类型（TYLX）、活动名称（HDMC）开始时间（HDKDSJ）、结束时间（HDJSSJ），并计算人数，如下表：</p>
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>体验类型</th>
+      <th style="width:35%">活动名称</th>
+      <th>开始时间</th>
+      <th>结束时间</th>
+	  <th>参与人数</th>
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td>科技节</td>	<td>开学典礼</td>	<td>2014-09-01</td>	<td>2014-09-01</td>	<td>137</td>	</tr>
+<tr class="alt">	<td>科技节</td>	<td>安全教育周</td>	<td>2014-09-01</td>	<td>2014-10-05</td>	<td>43</td>	</tr>
+<tr>	<td>科技节</td>	<td>安全教育周</td>	<td>2014-09-01</td>	<td>2014-09-05</td>	<td>43</td>	</tr>
+<tr class="alt">	<td>读书节</td>	<td>第十七届推普周活动</td>	<td>2014-09-15</td>	<td>2014-09-22</td>	<td>203</td>	</tr>
+<tr>	<td>科技节</td>	<td>第十七届推普周活动</td>	<td>2014-09-15</td>	<td>2014-09-22</td>	<td>92</td>	</tr>
+<tr class="alt">	<td>科技节</td>	<td>践行社会主义价值观”动员活动</td>	<td>2014-09-29</td>	<td>2014-09-29</td>	<td>153</td>	</tr>
+<tr>	<td>科技节</td>	<td>缅怀革命先烈，争做四好少年</td>	<td>2014-09-30</td>	<td>2014-09-30</td>	<td>96</td>	</tr>
+<tr class="alt">	<td>艺术节</td>	<td>快乐参与展我自信体验成功</td>	<td>2014-10-08</td>	<td>2014-10-31</td>	<td>46</td>	</tr>
+<tr>	<td>艺术节</td>	<td>校园艺术节</td>	<td>2014-10-08</td>	<td>2014-10-30</td>	<td>173</td>	</tr>
+<tr class="alt">	<td>艺术节</td>	<td>校园艺术节</td>	<td>2014-10-08</td>	<td>2014-10-31</td>	<td>1815</td>	</tr>
+<tr>	<td>读书节</td>	<td>第十七届推普周活动</td>	<td>2014-10-15</td>	<td>2014-10-22</td>	<td>43</td>	</tr>
+<tr class="alt">	<td>艺术节</td>	<td>校园艺术节</td>	<td>2014-10-18</td>	<td>2014-10-31</td>	<td>45</td>	</tr>
+<tr>	<td>艺术节</td>	<td>少代会</td>	<td>2014-10-20</td>	<td>2014-10-20</td>	<td>70</td>	</tr>
+<tr class="alt">	<td>科技节</td>	<td>校园电影阳光行</td>	<td>2014-11-04</td>	<td>2014-11-12</td>	<td>81</td>	</tr>
+<tr>	<td>科技节</td>	<td>学校班主任节</td>	<td>2014-11-17</td>	<td>2014-11-28</td>	<td>44</td>	</tr>
+<tr class="alt">	<td>体育节</td>	<td>学校运动会</td>	<td>2014-12-12</td>	<td>2014-12-12</td>	<td>2403</td>	</tr>
+<tr>	<td>艺术节</td>	<td>学校英语节</td>	<td>2014-12-15</td>	<td>2015-01-05</td>	<td>86</td>	</tr>
+<tr class="alt">	<td>体育节</td>	<td>学校运动会</td>	<td>2014-12-22</td>	<td>2014-12-22</td>	<td>36</td>	</tr>
+<tr>	<td>读书节</td>	<td>读书漂流，欢乐共享3</td>	<td>2015-03-09</td>	<td>2015-03-23</td>	<td>1</td>	</tr>
+<tr class="alt">	<td>读书节</td>	<td>读书漂流，欢乐共享2</td>	<td>2015-03-09</td>	<td>2015-03-23</td>	<td>48</td>	</tr>
+<tr>	<td>读书节</td>	<td>读书漂流，欢乐共享1</td>	<td>2015-03-09</td>	<td>2015-03-23</td>	<td>3</td>	</tr>
+<tr class="alt">	<td>科技节</td>	<td>低碳生活我们在行动</td>	<td>2015-05-15</td>	<td>2015-05-15</td>	<td>3</td>	</tr>
+<tr>	<td>科技节</td>	<td>节约用水从我做起”水资源保护知识讲座</td>	<td>2015-05-18</td>	<td>2015-05-18</td>	<td>3</td>	</tr>
+<tr class="alt">	<td>科技节</td>	<td>《水资源保护和利用》知识竞赛</td>	<td>2015-05-18</td>	<td>2015-05-18</td>	<td>1</td>	</tr>
+<tr>	<td>科技节</td>	<td>垃圾分类，大家给力</td>	<td>2015-05-25</td>	<td>2015-05-25</td>	<td>3</td>	</tr>
+
+
+	  </tbody>
+</table>
+
+<p>有了数据，那么就要做一步转换，由于事件河流图的横坐标是以每一天为单位的，那么就需要我们以天为单位来作图</p>
+
+<li><strong>数据转换</strong></li>
+<p>先理一理思路，现在有了开始时间和结束时间，所以，我们要把每个活动重复（结束时间-开始时间+1）次，这里就要利用累计次数的概念了。</p>
+
+<p>然后，实际操作，将上表命名为【汇总数据】，并在Excel里写公式，得到下表：</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+	<th>id</th>
+      <th>体验类型</th>
+      <th>活动名称</th>
+      <th>开始时间</th>
+      <th>结束时间</th>
+	  <th>参与人数</th>
+	  <th>日期</th>	  
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td>0</td>	<td>科技节</td>	<td>开学典礼</td>	<td>2014-09-01</td>	<td>2014-09-01</td>	<td>137</td>	<td>2014-09-01</td>	</tr>
+<tr class="alt">	<td>1</td>	<td>科技节</td>	<td>安全教育周</td>	<td>2014-09-01</td>	<td>2014-10-05</td>	<td>43</td>	<td>2014-09-01</td>	</tr>
+<tr>	<td>2</td>	<td>科技节</td>	<td>安全教育周</td>	<td>2014-09-01</td>	<td>2014-10-05</td>	<td>43</td>	<td>2014-09-02</td>	</tr>
+<tr class="alt">	<td>3</td>	<td>科技节</td>	<td>安全教育周</td>	<td>2014-09-01</td>	<td>2014-10-05</td>	<td>43</td>	<td>2014-09-03</td>	</tr>
+<tr>	<td>4</td>	<td>科技节</td>	<td>安全教育周</td>	<td>2014-09-01</td>	<td>2014-10-05</td>	<td>43</td>	<td>2014-09-04</td>	</tr>
+<tr class="alt">	<td>5</td>	<td>科技节</td>	<td>安全教育周</td>	<td>2014-09-01</td>	<td>2014-10-05</td>	<td>43</td>	<td>2014-09-05</td>	</tr>
+<tr>	<td>6</td>	<td>科技节</td>	<td>安全教育周</td>	<td>2014-09-01</td>	<td>2014-10-05</td>	<td>43</td>	<td>2014-09-06</td>	</tr>
+<tr class="alt">	<td>7</td>	<td>科技节</td>	<td>安全教育周</td>	<td>2014-09-01</td>	<td>2014-10-05</td>	<td>43</td>	<td>2014-09-07</td>	</tr>
+<tr>	<td>8</td>	<td>科技节</td>	<td>安全教育周</td>	<td>2014-09-01</td>	<td>2014-10-05</td>	<td>43</td>	<td>2014-09-08</td>	</tr>
+<tr class="alt">	<td>9</td>	<td>科技节</td>	<td>安全教育周</td>	<td>2014-09-01</td>	<td>2014-10-05</td>	<td>43</td>	<td>2014-09-09</td>	</tr>
+<tr>	<td>10</td>	<td>科技节</td>	<td>安全教育周</td>	<td>2014-09-01</td>	<td>2014-10-05</td>	<td>43</td>	<td>2014-09-10</td>	</tr>
+<tr class="alt">	<td>...</td>	<td>...</td>	<td>...</td>	<td>...</td>	<td>...</td>	<td>...</td>	<td>...</td>	</tr>
+	  </tbody>
+</table>
+
+<p>具体公式如下：</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+	<th>id</th>
+      <th>体验类型</th>
+      <th>活动名称</th>
+      <th>开始时间</th>
+      <th>结束时间</th>
+	  <th>参与人数</th>
+	  <th>日期</th>	  
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td>=IF(A1="id”,0,A1+1)</td>	<td>=VLOOKUP($A2,汇总数据!$A:$F,COLUMN(B2),1)</td>	<td>=VLOOKUP($A2,汇总数据!$A:$F,COLUMN(C2),1)</td>	<td>=VLOOKUP($A2,汇总数据!$A:$F,COLUMN(d2),1)</td>	<td>=VLOOKUP($A2,汇总数据!$A:$F,COLUMN(e2),1)</td>	<td>VLOOKUP($A2,汇总数据!$A:$F,COLUMN(f2),1)</td>	<td>=IF(B2&C2&D2&E2=B1&C1&D1&E1,G1+1,D2)</td>	</tr>
+	  </tbody>
+</table>
+
+<p>然后合并一下同一天出现的同一个活动的数据，再改一下数据格式就可以贴到相应的代码里面了。</p>
+
+<li><strong>作图</strong></li>
+
+<p>先来段代码：</p>
+<pre style = "height:600px">
+option = {
+    title : {
+        text: '四节活动开展情况'
+    },
+    tooltip : {
+        trigger: 'item',
+        enterable: true
+    },
+    legend: {
+        data:['读书节', '体育节','艺术节','科技节'],
+		x:'right',
+    },
+
+    xAxis : [
+        {
+            type : 'time',
+            boundaryGap: [0.05,0.1]
+        }
+    ],
+    series : [
+        {
+            name: "科技节", 
+            type: "eventRiver", 
+            //weight: Math.random()*100, 
+			itemStyle: {
+               normal: {
+                   label: {
+                       show: false
+                   }
+               }
+           },
+            data: [
+                {
+                    name: "开学典礼", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-01","value":137}
+                    ]
+                }, 
+                 {
+                    name: "安全教育周", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-01","value":43},
+						{"time":"2014-09-02","value":43},
+						{"time":"2014-09-03","value":43},
+						{"time":"2014-09-04","value":43},
+						{"time":"2014-09-05","value":43},
+						{"time":"2014-09-06","value":43},
+						{"time":"2014-09-07","value":43},
+						{"time":"2014-09-08","value":43},
+						{"time":"2014-09-09","value":43},
+						{"time":"2014-09-10","value":43},
+						{"time":"2014-09-11","value":43},
+						{"time":"2014-09-12","value":43},
+						{"time":"2014-09-13","value":43},
+						{"time":"2014-09-14","value":43},
+						{"time":"2014-09-15","value":43},
+						{"time":"2014-09-16","value":43},
+						{"time":"2014-09-17","value":43},
+						{"time":"2014-09-18","value":43},
+						{"time":"2014-09-19","value":43},
+						{"time":"2014-09-20","value":43},
+						{"time":"2014-09-21","value":43},
+						{"time":"2014-09-22","value":43},
+						{"time":"2014-09-23","value":43},
+						{"time":"2014-09-24","value":43},
+						{"time":"2014-09-25","value":43},
+						{"time":"2014-09-26","value":43},
+						{"time":"2014-09-27","value":43},
+						{"time":"2014-09-28","value":43},
+						{"time":"2014-09-29","value":43},
+						{"time":"2014-09-30","value":43},
+						{"time":"2014-10-01","value":43},
+						{"time":"2014-10-02","value":43},
+						{"time":"2014-10-03","value":43},
+						{"time":"2014-10-04","value":43},
+						{"time":"2014-10-05","value":43}
+                    ]
+                }, 
+                {
+                    name: "安全教育周", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-01","value":43},
+						{"time":"2014-09-02","value":43},
+						{"time":"2014-09-03","value":43},
+						{"time":"2014-09-04","value":43},
+						{"time":"2014-09-05","value":43}
+                    ]
+                }, 
+                {
+                    name: "第十七届推普周活动", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-15","value":92},
+						{"time":"2014-09-16","value":92},
+						{"time":"2014-09-17","value":92},
+						{"time":"2014-09-18","value":92},
+						{"time":"2014-09-19","value":92},
+						{"time":"2014-09-20","value":92},
+						{"time":"2014-09-21","value":92},
+						{"time":"2014-09-22","value":92}
+                    ]
+                },
+                {
+                    name: "践行社会主义价值观”动员活动", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-29","value":153}
+						]
+                }, 
+                {
+                    name: "缅怀革命先烈，争做四好少年", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-30","value":96}
+                    ]
+                },  
+                {
+                    name: "校园电影阳光行", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-11-04","value":81},
+						{"time":"2014-11-05","value":81},
+						{"time":"2014-11-06","value":81},
+						{"time":"2014-11-07","value":81},
+						{"time":"2014-11-08","value":81},
+						{"time":"2014-11-09","value":81},
+						{"time":"2014-11-10","value":81},
+						{"time":"2014-11-11","value":81},
+						{"time":"2014-11-12","value":81}
+                    ]
+                },
+                {
+                    name: "学校班主任节", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-11-17","value":44},
+						{"time":"2014-11-18","value":44},
+						{"time":"2014-11-19","value":44},
+						{"time":"2014-11-20","value":44},
+						{"time":"2014-11-21","value":44},
+						{"time":"2014-11-22","value":44},
+						{"time":"2014-11-23","value":44},
+						{"time":"2014-11-24","value":44},
+						{"time":"2014-11-25","value":44},
+						{"time":"2014-11-26","value":44},
+						{"time":"2014-11-27","value":44},
+						{"time":"2014-11-28","value":44}
+                    ]
+                },  
+                {
+                    name: "低碳生活我们在行动", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-05-15","value":3}
+                    ]
+                },    
+{
+                    name: "节约用水从我做起”水资源保护知识讲座", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-05-18","value":3}
+                    ]
+                },  
+{
+                    name: "《水资源保护和利用》知识竞赛", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-05-18","value":1}
+                    ]
+                },  
+{
+                    name: "垃圾分类，大家给力", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-05-25","value":3}
+                    ]
+                },  				
+            ]
+        }, 
+		{
+            name: "体育节", 
+            type: "eventRiver", 
+            weight: Math.random()*100,
+			itemStyle: {
+               normal: {
+                   label: {
+                       show: false
+                   }
+               }
+           },
+            data: [
+                {
+                    name: "学校运动会", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-12-12","value":2403}
+                    ]
+                }, 
+				{
+                    name: "学校运动会", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-12-22","value":36}
+                    ]
+                },                                 
+            ]
+        },
+		{
+            name: "艺术节", 
+            type: "eventRiver", 
+            weight: Math.random()*100,
+			itemStyle: {
+               normal: {
+                   label: {
+                       show: false
+                   }
+               }
+           },
+            data: [
+                {
+                    name: "快乐参与展我自信体验成功", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-10-08","value":46},
+						{"time":"2014-10-09","value":46},
+						{"time":"2014-10-10","value":46},
+						{"time":"2014-10-11","value":46},
+						{"time":"2014-10-12","value":46},
+						{"time":"2014-10-13","value":46},
+						{"time":"2014-10-14","value":46},
+						{"time":"2014-10-15","value":46},
+						{"time":"2014-10-16","value":46},
+						{"time":"2014-10-17","value":46},
+						{"time":"2014-10-18","value":46},
+						{"time":"2014-10-19","value":46},
+						{"time":"2014-10-20","value":46},
+						{"time":"2014-10-21","value":46},
+						{"time":"2014-10-22","value":46},
+						{"time":"2014-10-23","value":46},
+						{"time":"2014-10-24","value":46},
+						{"time":"2014-10-25","value":46},
+						{"time":"2014-10-26","value":46},
+						{"time":"2014-10-27","value":46},
+						{"time":"2014-10-28","value":46},
+						{"time":"2014-10-29","value":46},
+						{"time":"2014-10-30","value":46},
+						{"time":"2014-10-31","value":46}
+                    ]
+                }, 
+				{
+                    name: "校园艺术节", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-10-08","value":1988},
+						{"time":"2014-10-09","value":1988},
+						{"time":"2014-10-10","value":1988},
+						{"time":"2014-10-11","value":1988},
+						{"time":"2014-10-12","value":1988},
+						{"time":"2014-10-13","value":1988},
+						{"time":"2014-10-14","value":1988},
+						{"time":"2014-10-15","value":1988},
+						{"time":"2014-10-16","value":1988},
+						{"time":"2014-10-17","value":1988},
+						{"time":"2014-10-18","value":2033},
+						{"time":"2014-10-19","value":2033},
+						{"time":"2014-10-20","value":2033},
+						{"time":"2014-10-21","value":2033},
+						{"time":"2014-10-22","value":2033},
+						{"time":"2014-10-23","value":2033},
+						{"time":"2014-10-24","value":2033},
+						{"time":"2014-10-25","value":2033},
+						{"time":"2014-10-26","value":2033},
+						{"time":"2014-10-27","value":2033},
+						{"time":"2014-10-28","value":2033},
+						{"time":"2014-10-29","value":2033},
+						{"time":"2014-10-30","value":2033},
+						{"time":"2014-10-31","value":1860}
+                    ]
+                }, 
+				{
+                    name: "少代会", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-10-20","value":70}
+                    ]
+                },
+				{
+                    name: "学校英语节", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-12-15","value":86},
+						{"time":"2014-12-16","value":86},
+						{"time":"2014-12-17","value":86},
+						{"time":"2014-12-18","value":86},
+						{"time":"2014-12-19","value":86},
+						{"time":"2014-12-20","value":86},
+						{"time":"2014-12-21","value":86},
+						{"time":"2014-12-22","value":86},
+						{"time":"2014-12-23","value":86},
+						{"time":"2014-12-24","value":86},
+						{"time":"2014-12-25","value":86},
+						{"time":"2014-12-26","value":86},
+						{"time":"2014-12-27","value":86},
+						{"time":"2014-12-28","value":86},
+						{"time":"2014-12-29","value":86},
+						{"time":"2014-12-30","value":86},
+						{"time":"2014-12-31","value":86},
+						{"time":"2015-01-01","value":86},
+						{"time":"2015-01-02","value":86},
+						{"time":"2015-01-03","value":86},
+						{"time":"2015-01-04","value":86},
+						{"time":"2015-01-05","value":86}
+                    ]
+                },
+                                
+            ]
+        },
+		{
+            name: "读书节", 
+            type: "eventRiver", 
+            weight: Math.random()*100,
+			itemStyle: {
+               normal: {
+                   label: {
+                       show: false
+                   }
+               }
+           },
+            data: [
+                {
+                    name: "第十七届推普周活动", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-15","value":203},
+						{"time":"2014-09-16","value":203},
+						{"time":"2014-09-17","value":203},
+						{"time":"2014-09-18","value":203},
+						{"time":"2014-09-19","value":203},
+						{"time":"2014-09-20","value":203},
+						{"time":"2014-09-21","value":203},
+						{"time":"2014-09-22","value":203}
+                    ]
+                },
+				                {
+                    name: "读书漂流，欢乐共享2", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-03-09","value":48},
+						{"time":"2015-03-10","value":48},
+						{"time":"2015-03-11","value":48},
+						{"time":"2015-03-12","value":48},
+						{"time":"2015-03-13","value":48},
+						{"time":"2015-03-14","value":48},
+						{"time":"2015-03-15","value":48},
+						{"time":"2015-03-16","value":48},
+						{"time":"2015-03-17","value":48},
+						{"time":"2015-03-18","value":48},
+						{"time":"2015-03-19","value":48},
+						{"time":"2015-03-20","value":48},
+						{"time":"2015-03-21","value":48},
+						{"time":"2015-03-22","value":48},
+						{"time":"2015-03-23","value":48}
+                    ]
+                },
+				                {
+                    name: "读书漂流，欢乐共享1", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-03-09","value":3},
+						{"time":"2015-03-10","value":3},
+						{"time":"2015-03-11","value":3},
+						{"time":"2015-03-12","value":3},
+						{"time":"2015-03-13","value":3},
+						{"time":"2015-03-14","value":3},
+						{"time":"2015-03-15","value":3},
+						{"time":"2015-03-16","value":3},
+						{"time":"2015-03-17","value":3},
+						{"time":"2015-03-18","value":3},
+						{"time":"2015-03-19","value":3},
+						{"time":"2015-03-20","value":3},
+						{"time":"2015-03-21","value":3},
+						{"time":"2015-03-22","value":3},
+						{"time":"2015-03-23","value":3}
+                    ]
+                },
+				                {
+                    name: "读书漂流，欢乐共享3", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-03-09","value":1},
+						{"time":"2015-03-10","value":1},
+						{"time":"2015-03-11","value":1},
+						{"time":"2015-03-12","value":1},
+						{"time":"2015-03-13","value":1},
+						{"time":"2015-03-14","value":1},
+						{"time":"2015-03-15","value":1},
+						{"time":"2015-03-16","value":1},
+						{"time":"2015-03-17","value":1},
+						{"time":"2015-03-18","value":1},
+						{"time":"2015-03-19","value":1},
+						{"time":"2015-03-20","value":1},
+						{"time":"2015-03-21","value":1},
+						{"time":"2015-03-22","value":1},
+						{"time":"2015-03-23","value":1}
+                    ]
+                },                               
+            ]
+        }
+    ]
+};
+</pre>
+
+<p>以上代码运行后就可以得到下图（不行也没办法）：</p>
+
+<div id="main2" style="height:400px;width:700px;margin：auto"></div>
+<br/>
+<span class="caption text-muted">图4 四节活动开展情况</span>
+<script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'js/echarts/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+
+                'echarts/chart/eventRiver', // 使用柱状图就加载bar模块，按需加载
+
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main2')); 
+                
+              option = {
+    title : {
+        text: '四节活动开展情况'
+    },
+    tooltip : {
+        trigger: 'item',
+        enterable: true
+    },
+    legend: {
+        data:['读书节', '体育节','艺术节','科技节'],
+		x:'right',
+    },
+
+    xAxis : [
+        {
+            type : 'time',
+            boundaryGap: [0.05,0.1]
+        }
+    ],
+    series : [
+        {
+            name: "科技节", 
+            type: "eventRiver", 
+            //weight: Math.random()*100, 
+			itemStyle: {
+               normal: {
+                   label: {
+                       show: false
+                   }
+               }
+           },
+            data: [
+                {
+                    name: "开学典礼", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-01","value":137}
+                    ]
+                }, 
+                 {
+                    name: "安全教育周", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-01","value":43},
+						{"time":"2014-09-02","value":43},
+						{"time":"2014-09-03","value":43},
+						{"time":"2014-09-04","value":43},
+						{"time":"2014-09-05","value":43},
+						{"time":"2014-09-06","value":43},
+						{"time":"2014-09-07","value":43},
+						{"time":"2014-09-08","value":43},
+						{"time":"2014-09-09","value":43},
+						{"time":"2014-09-10","value":43},
+						{"time":"2014-09-11","value":43},
+						{"time":"2014-09-12","value":43},
+						{"time":"2014-09-13","value":43},
+						{"time":"2014-09-14","value":43},
+						{"time":"2014-09-15","value":43},
+						{"time":"2014-09-16","value":43},
+						{"time":"2014-09-17","value":43},
+						{"time":"2014-09-18","value":43},
+						{"time":"2014-09-19","value":43},
+						{"time":"2014-09-20","value":43},
+						{"time":"2014-09-21","value":43},
+						{"time":"2014-09-22","value":43},
+						{"time":"2014-09-23","value":43},
+						{"time":"2014-09-24","value":43},
+						{"time":"2014-09-25","value":43},
+						{"time":"2014-09-26","value":43},
+						{"time":"2014-09-27","value":43},
+						{"time":"2014-09-28","value":43},
+						{"time":"2014-09-29","value":43},
+						{"time":"2014-09-30","value":43},
+						{"time":"2014-10-01","value":43},
+						{"time":"2014-10-02","value":43},
+						{"time":"2014-10-03","value":43},
+						{"time":"2014-10-04","value":43},
+						{"time":"2014-10-05","value":43}
+                    ]
+                }, 
+                {
+                    name: "安全教育周", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-01","value":43},
+						{"time":"2014-09-02","value":43},
+						{"time":"2014-09-03","value":43},
+						{"time":"2014-09-04","value":43},
+						{"time":"2014-09-05","value":43}
+                    ]
+                }, 
+                {
+                    name: "第十七届推普周活动", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-15","value":92},
+						{"time":"2014-09-16","value":92},
+						{"time":"2014-09-17","value":92},
+						{"time":"2014-09-18","value":92},
+						{"time":"2014-09-19","value":92},
+						{"time":"2014-09-20","value":92},
+						{"time":"2014-09-21","value":92},
+						{"time":"2014-09-22","value":92}
+                    ]
+                },
+                {
+                    name: "践行社会主义价值观”动员活动", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-29","value":153}
+						]
+                }, 
+                {
+                    name: "缅怀革命先烈，争做四好少年", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-30","value":96}
+                    ]
+                },  
+                {
+                    name: "校园电影阳光行", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-11-04","value":81},
+						{"time":"2014-11-05","value":81},
+						{"time":"2014-11-06","value":81},
+						{"time":"2014-11-07","value":81},
+						{"time":"2014-11-08","value":81},
+						{"time":"2014-11-09","value":81},
+						{"time":"2014-11-10","value":81},
+						{"time":"2014-11-11","value":81},
+						{"time":"2014-11-12","value":81}
+                    ]
+                },
+                {
+                    name: "学校班主任节", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-11-17","value":44},
+						{"time":"2014-11-18","value":44},
+						{"time":"2014-11-19","value":44},
+						{"time":"2014-11-20","value":44},
+						{"time":"2014-11-21","value":44},
+						{"time":"2014-11-22","value":44},
+						{"time":"2014-11-23","value":44},
+						{"time":"2014-11-24","value":44},
+						{"time":"2014-11-25","value":44},
+						{"time":"2014-11-26","value":44},
+						{"time":"2014-11-27","value":44},
+						{"time":"2014-11-28","value":44}
+                    ]
+                },  
+                {
+                    name: "低碳生活我们在行动", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-05-15","value":3}
+                    ]
+                },    
+{
+                    name: "节约用水从我做起”水资源保护知识讲座", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-05-18","value":3}
+                    ]
+                },  
+{
+                    name: "《水资源保护和利用》知识竞赛", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-05-18","value":1}
+                    ]
+                },  
+{
+                    name: "垃圾分类，大家给力", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-05-25","value":3}
+                    ]
+                },  				
+            ]
+        }, 
+		{
+            name: "体育节", 
+            type: "eventRiver", 
+            weight: Math.random()*100,
+			itemStyle: {
+               normal: {
+                   label: {
+                       show: false
+                   }
+               }
+           },
+            data: [
+                {
+                    name: "学校运动会", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-12-12","value":2403}
+                    ]
+                }, 
+				{
+                    name: "学校运动会", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-12-22","value":36}
+                    ]
+                },                                 
+            ]
+        },
+		{
+            name: "艺术节", 
+            type: "eventRiver", 
+            weight: Math.random()*100,
+			itemStyle: {
+               normal: {
+                   label: {
+                       show: false
+                   }
+               }
+           },
+            data: [
+                {
+                    name: "快乐参与展我自信体验成功", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-10-08","value":46},
+						{"time":"2014-10-09","value":46},
+						{"time":"2014-10-10","value":46},
+						{"time":"2014-10-11","value":46},
+						{"time":"2014-10-12","value":46},
+						{"time":"2014-10-13","value":46},
+						{"time":"2014-10-14","value":46},
+						{"time":"2014-10-15","value":46},
+						{"time":"2014-10-16","value":46},
+						{"time":"2014-10-17","value":46},
+						{"time":"2014-10-18","value":46},
+						{"time":"2014-10-19","value":46},
+						{"time":"2014-10-20","value":46},
+						{"time":"2014-10-21","value":46},
+						{"time":"2014-10-22","value":46},
+						{"time":"2014-10-23","value":46},
+						{"time":"2014-10-24","value":46},
+						{"time":"2014-10-25","value":46},
+						{"time":"2014-10-26","value":46},
+						{"time":"2014-10-27","value":46},
+						{"time":"2014-10-28","value":46},
+						{"time":"2014-10-29","value":46},
+						{"time":"2014-10-30","value":46},
+						{"time":"2014-10-31","value":46}
+                    ]
+                }, 
+				{
+                    name: "校园艺术节", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-10-08","value":1988},
+						{"time":"2014-10-09","value":1988},
+						{"time":"2014-10-10","value":1988},
+						{"time":"2014-10-11","value":1988},
+						{"time":"2014-10-12","value":1988},
+						{"time":"2014-10-13","value":1988},
+						{"time":"2014-10-14","value":1988},
+						{"time":"2014-10-15","value":1988},
+						{"time":"2014-10-16","value":1988},
+						{"time":"2014-10-17","value":1988},
+						{"time":"2014-10-18","value":2033},
+						{"time":"2014-10-19","value":2033},
+						{"time":"2014-10-20","value":2033},
+						{"time":"2014-10-21","value":2033},
+						{"time":"2014-10-22","value":2033},
+						{"time":"2014-10-23","value":2033},
+						{"time":"2014-10-24","value":2033},
+						{"time":"2014-10-25","value":2033},
+						{"time":"2014-10-26","value":2033},
+						{"time":"2014-10-27","value":2033},
+						{"time":"2014-10-28","value":2033},
+						{"time":"2014-10-29","value":2033},
+						{"time":"2014-10-30","value":2033},
+						{"time":"2014-10-31","value":1860}
+                    ]
+                }, 
+				{
+                    name: "少代会", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-10-20","value":70}
+                    ]
+                },
+				{
+                    name: "学校英语节", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-12-15","value":86},
+						{"time":"2014-12-16","value":86},
+						{"time":"2014-12-17","value":86},
+						{"time":"2014-12-18","value":86},
+						{"time":"2014-12-19","value":86},
+						{"time":"2014-12-20","value":86},
+						{"time":"2014-12-21","value":86},
+						{"time":"2014-12-22","value":86},
+						{"time":"2014-12-23","value":86},
+						{"time":"2014-12-24","value":86},
+						{"time":"2014-12-25","value":86},
+						{"time":"2014-12-26","value":86},
+						{"time":"2014-12-27","value":86},
+						{"time":"2014-12-28","value":86},
+						{"time":"2014-12-29","value":86},
+						{"time":"2014-12-30","value":86},
+						{"time":"2014-12-31","value":86},
+						{"time":"2015-01-01","value":86},
+						{"time":"2015-01-02","value":86},
+						{"time":"2015-01-03","value":86},
+						{"time":"2015-01-04","value":86},
+						{"time":"2015-01-05","value":86}
+                    ]
+                },
+                                
+            ]
+        },
+		{
+            name: "读书节", 
+            type: "eventRiver", 
+            weight: Math.random()*100,
+			itemStyle: {
+               normal: {
+                   label: {
+                       show: false
+                   }
+               }
+           },
+            data: [
+                {
+                    name: "第十七届推普周活动", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2014-09-15","value":203},
+						{"time":"2014-09-16","value":203},
+						{"time":"2014-09-17","value":203},
+						{"time":"2014-09-18","value":203},
+						{"time":"2014-09-19","value":203},
+						{"time":"2014-09-20","value":203},
+						{"time":"2014-09-21","value":203},
+						{"time":"2014-09-22","value":203}
+                    ]
+                },
+				                {
+                    name: "读书漂流，欢乐共享2", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-03-09","value":48},
+						{"time":"2015-03-10","value":48},
+						{"time":"2015-03-11","value":48},
+						{"time":"2015-03-12","value":48},
+						{"time":"2015-03-13","value":48},
+						{"time":"2015-03-14","value":48},
+						{"time":"2015-03-15","value":48},
+						{"time":"2015-03-16","value":48},
+						{"time":"2015-03-17","value":48},
+						{"time":"2015-03-18","value":48},
+						{"time":"2015-03-19","value":48},
+						{"time":"2015-03-20","value":48},
+						{"time":"2015-03-21","value":48},
+						{"time":"2015-03-22","value":48},
+						{"time":"2015-03-23","value":48}
+                    ]
+                },
+				                {
+                    name: "读书漂流，欢乐共享1", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-03-09","value":3},
+						{"time":"2015-03-10","value":3},
+						{"time":"2015-03-11","value":3},
+						{"time":"2015-03-12","value":3},
+						{"time":"2015-03-13","value":3},
+						{"time":"2015-03-14","value":3},
+						{"time":"2015-03-15","value":3},
+						{"time":"2015-03-16","value":3},
+						{"time":"2015-03-17","value":3},
+						{"time":"2015-03-18","value":3},
+						{"time":"2015-03-19","value":3},
+						{"time":"2015-03-20","value":3},
+						{"time":"2015-03-21","value":3},
+						{"time":"2015-03-22","value":3},
+						{"time":"2015-03-23","value":3}
+                    ]
+                },
+				                {
+                    name: "读书漂流，欢乐共享3", 
+                    //weight: Math.random()*100, 
+                    evolution: [
+						{"time":"2015-03-09","value":1},
+						{"time":"2015-03-10","value":1},
+						{"time":"2015-03-11","value":1},
+						{"time":"2015-03-12","value":1},
+						{"time":"2015-03-13","value":1},
+						{"time":"2015-03-14","value":1},
+						{"time":"2015-03-15","value":1},
+						{"time":"2015-03-16","value":1},
+						{"time":"2015-03-17","value":1},
+						{"time":"2015-03-18","value":1},
+						{"time":"2015-03-19","value":1},
+						{"time":"2015-03-20","value":1},
+						{"time":"2015-03-21","value":1},
+						{"time":"2015-03-22","value":1},
+						{"time":"2015-03-23","value":1}
+                    ]
+                },                               
+            ]
+        }
+    ]
+};
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            }
+        );
+</script>
+
+
+<p>由于目前数据比较粗，基本上每个活动都是开始多少人，结束也多少人，所以出来的图都是大块大块的...</p>
+
+
+<!-- <p style="color:gray"><strong>tips:</strong><small><i>上图用数据透视表即可实现。以学生为行，学年为列，成绩为值，计算使用默认的求和即可。</i></small></p> -->
+
+<p>在最上面的用例上，作图使用的是全区所有学生在不同时间开始的活动，然后根据结束时间递减，所以，整体上就是先多后少的图块了。</p>
+
+<p>当然了，如果以后能够确切的记录到每个活动每天有多少学生确实在参与的话，相信图表能够给出更多的信息。</p>
+
+
+<p>这类图也有其他的表达形式，我这边借鉴了微软给美国做的一套数据视频，制作了四节相关的一套图表，如下：</p>
+
+<p><img src="img/charts/06/06.png" class="position" style="width:80%"></img></p>
+<span class="caption text-muted">图5 3D场景柱形图</span>
+
+<p>其实有段简单的视频，这里就不放了。</p>
+
+
+<hr>
+
+<br/>
+<p><strong>结束语：</strong>总的来说，这期大概是所有图表系列中做出来成品最丑的一期，不论是配色还是数据本身，也难怪在今天刚发布的ECharts 3.0版里面已经见不到事件河流图了。不过，这种创意还是值得借鉴的。其实到这里我才想起来，好像有种类似的项目管理的XX图和这个挺像的，里面第一列是项目，第一排是日期，内容是用色块的形式涂满，用来表示某个项目所占用的时间。</p>
+<p>最后，安利下，<a href="http://echarts.baidu.com/" target="_blank"><strong>ECharts 3.0</strong></a>上线了，可以去看看。</p>
+
+
+
+
+<h2 class="section-heading">Reference</h2>
+
+ <a href="http://echarts.baidu.com/echarts2/doc/example/eventRiver2.html" target="_blank">ECharts:事件河流图实例</a><br/>
+
+<a href="http://jingyan.baidu.com/article/fd8044faca98d75031137a94.html" target="_blank">百度经验：如何用图表秀做事件河流图？</a><br/>
+
+
+ <br/>
+
+<!-- <p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p> -->
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="charts_page5.html" data-toggle="tooltip" data-placement="top" title="上一篇：热力图">&larr; Previous Blog</a>
+                    </li>
+                    
+<!--                      <li >
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Back to Top">Back to Top</a>
+                    </li>
+					 -->
+                    <li class="next">
+                        <a href="charts_page7.html" data-toggle="tooltip" data-placement="top" title="下一篇：自定义图表">Next Blog &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+			
+        </div>
+		
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!--                 <ul class="list-inline text-center">
+                    <li>
+                        <a href="feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/xyf2015">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul> -->
+                <p class="copyright text-muted">Copyright &copy; Psylife 2015</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/clean-blog.min.js "></script>
+
+
+
+
+</body>
+
+</html>

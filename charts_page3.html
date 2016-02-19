@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PsyLife-data team">
+
+    <title>Chart Blog 3</title>
+
+    <link rel="canonical" href="/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="css/syntax.css">
+
+    <!-- Custom Fonts -->
+<!-- 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	 <style>
+    @media only screen and (min-width: 641px) {
+      .am-offcanvas {
+        display: block;
+        position: static;
+        background: none;
+      }
+
+      .am-offcanvas-bar {
+        position: static;
+        width: auto;
+        background: none;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      .am-offcanvas-bar:after {
+        content: none;
+      }
+
+    }
+
+    @media only screen and (max-width: 640px) {
+      .am-offcanvas-bar .am-nav>li>a {
+        color:#ccc;
+        border-radius: 0;
+        border-top: 1px solid rgba(0,0,0,.3);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05)
+      }
+
+      .am-offcanvas-bar .am-nav>li>a:hover {
+        background: #404040;
+        color: #fff
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-nav-header {
+        color: #777;
+        background: #404040;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+        text-shadow: 0 1px 0 rgba(0,0,0,.5);
+        border-top: 1px solid rgba(0,0,0,.3);
+        font-weight: 400;
+        font-size: 75%
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-active>a {
+        background: #1a1a1a;
+        color: #fff;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+      }
+
+      .am-offcanvas-bar .am-nav>li+li {
+        margin-top: 0;
+      }
+    }
+
+    .my-head {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .my-button {
+      position: fixed;
+      top: 0;
+      right: 0;
+      border-radius: 0;
+    }
+    .my-sidebar {
+      padding-right: 0;
+      border-right: 1px solid #eeeeee;
+    }
+
+    .my-footer {
+      border-top: 1px solid #eeeeee;
+      padding: 10px 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+	img.position{
+	margin:auto;
+	}
+	img.bq{
+	display:inline;
+	height:80px;
+	vertical-align:text-bottom;
+	}
+#customers
+  {
+  width:100%;
+  border-collapse:collapse;
+  text-align:center;
+
+
+  }
+
+#customers td, #customers th
+  {
+  font-size:1em;
+  border:1px solid gray;
+  padding:3px 7px 2px 7px;
+  	vertical-align:middle;
+	  text-align:center;
+	  width:10%;
+  }
+
+#customers th{
+background-color:gray;
+color:white;
+
+}
+
+#customers tr.alt td 
+  {
+  color:#000000;
+  background-color:rgb(240,240,240);
+    width:20%;
+		vertical-align:middle;
+  }
+ 
+.navbar-custom .nav li a:hover, .navbar-custom .nav li a:focus {
+color: rgba(149, 149, 149, 0.8);}
+.navbar-custom .nav li a {
+color: rgba(80, 80, 80, 0.8);
+padding: 20px;
+}
+  </style>
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+<!--             <a class="navbar-brand" href="index.html">Back to Home</a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="index0.html">Home</a>
+                </li>
+                
+                <li>
+                    <a href="http://www.psylife.cc/" target="_blank">About</a>
+                </li>
+                
+                <li>
+                    <a href="http://xyf2015.github.io/blog/" target="_blank" >Contact</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('img/charts/03/01.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1 style="color:rgb(80,80,80)">Excel2016系列之——箱型图</h1>
+                    
+                    <h2 class="subheading" style="color:rgb(80,80,80)">这些家伙给我装箱</h2>
+                    
+                    <span class="meta"  style="color:rgb(80,80,80)">整理人：徐逸峰  &nbsp;&nbsp;&nbsp;&nbsp; 2016-01-04</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+ 
+<article>
+    <div class="container">
+	
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>实在不想复制前面的首语，但是自己重新写好累啊啊啊啊啊啊啊...</p>
+
+				
+				<p>算了，不起范儿了，直接进入主题<strong>Excel2016系列之——箱型图</strong>。</p>
+				
+
+<h2 class="section-heading">About Boxplot</h2>
+
+<p>箱型图的英文名为boxplot，是一种完美结合箱子和线条概念的图表。它还有一个兄弟图表，叫做胡须图，英文名为whiskerplot。两者的唯一区别就是：箱型图是竖着放的，胡须图是横着放的。（有没有一种梯子不用时请横着放的赶脚？）</p>
+
+<p>要了解箱型图，首先可以先看看箱型图的图形。（其实挺烂大街的，一看就知道）</p>
+
+<p><img src="img/charts/03/02a.jpg" class="position"></img></p>
+<span class="caption text-muted">图1 箱型图示意</span>
+
+
+<p>是不是感觉很熟悉？我相信，一定有同学要开始不屑一顾了：我裤子都脱了，就让我看这个？</p>
+<p>别急，那么我就要问了，你真的知道箱形图所有元素的含义吗？容我细细道来。</p>
+
+<ul>
+<li><i><strong>Upper Whisker: </strong>上胡须，也称上边缘。当数据最大值距离Q3超出1.5倍的IQR时，则为最大值，否则为Q3 + 1.5*IQR</i></li>
+<li><i><strong>Q3:Upper Quartile: </strong>上四分位数，即超过所有数据75%的数值</i></li>
+<li><i><strong>Median: </strong>中位数，即超过所有数据50%的数值</i></li>
+<li><i><strong>Q1:Lower Quartile: </strong>下四分位数，即超过所有数据25%的数值</i></li>
+<li><i><strong>Lower Whisker: </strong>下胡须，也称下边缘。当数据最小值距离Q1超出1.5倍的IQR时，则为最小值，否则为Q1 - 1.5*IQR</i></li>
+</ul>
+<p>是不是看了就觉得都清楚了呢？其实还没完，还有些要解释的术语，有些在这张图里没有，但是在其他图上还是存在的。</p>
+<ul>
+<li><i><strong>IQR: </strong>Inter-Quartile Range，有多种叫法，这里姑且称为四分位距。即Q3 - Q1的值</i></li>
+<li><i><strong>Mean: </strong>均值，即数据的算术平均数</i></li>
+<li><i><strong>Max: </strong>最大值，部分箱型图不考虑IQR，就直接用最大值代替上胡须</i></li>
+<li><i><strong>Min: </strong>最小值，部分箱型图不考虑IQR，就直接用最小值代替下胡须</i></li>
+<li><i><strong>Outlier: </strong>异常值，在箱型图中会以点的形式表现</i></li>
+</ul>
+
+<p>上述10个名词都清楚之后，你才能真正理解箱型图！</p>
+
+<p>是不是又有小伙伴觉得不过如此呢？那么我就要提问了：为什么IQR要取1.5倍？</p>
+<p>这是有理论依据的！</p>
+
+<p><img src="img/charts/03/03.png" class="position"></img></p>
+<span class="caption text-muted">图2 IQR取值理论依据</span>
+<p>是不是觉得特别神奇？如果数据服从正态分布的话，Q1 - 1.5*IQR的区间位置点正好在大约-2.7个标准差左右（因为对称，右边就不说了），这意味着，在所有群体中，大于这个值的点理论上涵盖了总体的99.65%的数据，接近于99.5%。</p>
+<p>所以，统计思想无处不在！</p>
+
+
+
+<h2 class="section-heading">Boxplot by Excel</h2>
+
+<p>是不是有点晕？么关系，理论讲完了,讲点实际操作的东西。</p>
+
+<!-- <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span></p> -->
+
+<p>文章惯例：成品先出</p>
+
+<!-- <blockquote>Treemap is a space-constrained visualization of hierarchical structures. It is very effective in showing attributes of leaf nodes using size and color coding. Treemap enables users to compare nodes and sub-trees even at varying depth in the tree, and help them spot patterns and exceptions.</blockquote>
+<blockquote>
+Treemap was first designed by Ben Shneiderman during the 1990s. For more information, read the <a href="http://www.cs.umd.edu/hcil/treemap-history/">historical summary of treemaps,</a> their growing set of applications, and the many other implementations. Treemaps are a continuing topic of research and application at the HCIL.</blockquote> -->
+
+<p><img src="img/charts/03/04.png" class="position"></img></p>
+<span class="caption text-muted">图3 各A级指标评价结果</span>
+
+<p>具体来看图3，比较了两层数据，第一层是不同A级指标（见图例）的集中趋势，第二层是在不同A级指标下不同类型学校（小、初、九、高）的。具体结果就不讲了，给大家自由发挥的空间。</p>
+<p>有木有觉得一股浓浓的Excel风？明显有种一看就是Excel做出来的。</p>
+<p>回到主题，数据的组织大致如下。好吧其实完全不用组织（必要的数据转换还是要的，这个这里就不提了），只要表长这样就行：</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>学校类型</th>
+      <th>学生发展</th>
+      <th>教师发展</th>
+      <th>学校管理</th>
+      <th>社会认同</th>
+	  
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td>小学</td>	<td>85.55</td>	<td>79.65</td>	<td>90.24</td>	<td>84.46</td>	</tr>
+<tr class="alt">	<td>小学</td>	<td>79.76</td>	<td>78.14</td>	<td>82.99</td>	<td>88.54</td>	</tr>
+<tr>	<td>小学</td>	<td>79.28</td>	<td>76.98</td>	<td>84.58</td>	<td>82.02</td>	</tr>
+<tr class="alt">	<td>小学</td>	<td>80.54</td>	<td>81.04</td>	<td>86.99</td>	<td>77.43</td>	</tr>
+<tr>	<td>小学</td>	<td>86.31</td>	<td>78.53</td>	<td>91.25</td>	<td>85.67</td>	</tr>
+<tr class="alt">	<td>小学</td>	<td>86.38</td>	<td>82.09</td>	<td>86.19</td>	<td>87.34</td>	</tr>
+<tr>	<td>小学</td>	<td>87.74</td>	<td>84.08</td>	<td>92.35</td>	<td>91.35</td>	</tr>
+<tr class="alt">	<td>小学</td>	<td>84.20</td>	<td>85.53</td>	<td>92.20</td>	<td>83.52</td>	</tr>
+<tr>	<td>小学</td>	<td>83.84</td>	<td>87.79</td>	<td>92.31</td>	<td>81.77</td>	</tr>
+<tr class="alt">	<td>小学</td>	<td>87.15</td>	<td>89.65</td>	<td>95.19</td>	<td>94.69</td>	</tr>
+<tr>	<td>小学</td>	<td>90.98</td>	<td>88.97</td>	<td>90.62</td>	<td>98.49</td>	</tr>
+<tr class="alt">	<td>小学</td>	<td>91.00</td>	<td>84.60</td>	<td>93.91</td>	<td>82.05</td>	</tr>
+<tr>	<td>小学</td>	<td>78.89</td>	<td>77.96</td>	<td>85.36</td>	<td>82.49</td>	</tr>
+
+
+
+
+
+<tr class="alt">	<td>...</td>	<td>...</td>	<td>...</td>	<td>...</td> <td>...</td></tr>
+
+
+	  </tbody>
+</table>
+
+<p>然后，全选，作图。然后，图就出来了...</p>
+
+
+
+
+<!-- <p style="color:gray"><strong>tips:</strong><small><i>上图用数据透视表即可实现。以学生为行，学年为列，成绩为值，计算使用默认的求和即可。</i></small></p> -->
+
+
+
+<p><img src="img/charts/03/05.png" class="position"></img></p>
+<span class="caption text-muted">图4 excel箱型图示例</span>
+<p>再然后，自己调调配色什么的就好了。也有些要注意的地方：</p>
+
+<ol>
+<li><strong>因为是直接选中所有数据，所以速度偏慢</strong></li>
+<li><strong>在格式调整上相对困难</strong></li>
+<li><strong>贴到其他地方的时候建议使用图片，毕竟目前只有2016支持，而且容易碰到小bug</strong></li>
+</ol>
+
+
+<p>所以，你以为这一期就这么结束了吗？NONONO，too naive。接下来，为了撑一下篇幅，进入Excel2016以前如何做箱型图的教程。</p>
+<h2 class="section-heading">Boxplot by Excel2013</h2>
+
+
+<p>可以看到，Excel2015的箱型图确实强大，但是，由于是封装的关系，所以整体上不够自由。所以，这里教大家用Excel更自由地实现箱线图的方法。</p>
+
+<p>为表诚意，先上成品：</p>
+
+<p><img src="img/charts/03/06a.png" class="position"></img></p>
+<span class="caption text-muted">图5 箱型图(Excel2013)</span>
+<p><img src="img/charts/03/06b.png" class="position"></img></p>
+<span class="caption text-muted">图6 胡须图(Excel2013)</span>
+<p>一下子两张图，诚意满满有木有？</p>
+<p>图5是典型的箱型图，里面我做在传统箱型图的前提下做了一些改变：</p>
+
+<ul>
+<li><i>区分了Q1到Median以及Median到Q3的色块</i></li>
+<li><i>用短横线标记了数据的均值</i></li>
+<li><i>线段统一采用Q3 + 1.5*IQR或Q1 - 1.5*IQR的形式，所以会有负值</i></li>
+<li><i>最小值和最大值分别用圆点标记，</i></li>
+</ul>
+<p>图6就是闻名不如见面的胡须图，参照了图5的制图方法，只是坐标系有所变化。（在具体细节上操作难度高于箱型图，请自行摸索）</p>
+<p>要想做到高度自由化，就需要按照自己的方式组织数据，如下</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>statistics</th>
+      <th>aa</th>
+      <th>bb</th>
+      <th>cc</th>
+      <th>dd</th>
+
+	  
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td>min</td>	<td>2.00</td>	<td>5.00</td>	<td>3.00</td>	<td>9.00</td>	</tr>
+<tr class="alt">	<td>q1</td>	<td>16.00</td>	<td>10.00</td>	<td>5.00</td>	<td>15.00</td>	</tr>
+<tr>	<td>median</td>	<td>20.00</td>	<td>14.00</td>	<td>15.00</td>	<td>19.00</td>	</tr>
+<tr class="alt">	<td>q3</td>	<td>25.00</td>	<td>16.00</td>	<td>16.00</td>	<td>24.00</td>	</tr>
+<tr>	<td>max</td>	<td>30.00</td>	<td>19.00</td>	<td>18.00</td>	<td>27.00</td>	</tr>
+<tr class="alt">	<td>mean</td>	<td>18.30</td>	<td>14.70</td>	<td>8.20</td>	<td>20.90</td>	</tr>
+<tr>	<td>q3-q1(IQR)</td>	<td>9.00</td>	<td>6.00</td>	<td>11.00</td>	<td>9.00</td>	</tr>
+<tr class="alt">	<td>med-q1</td>	<td>4.00</td>	<td>4.00</td>	<td>10.00</td>	<td>4.00</td>	</tr>
+<tr>	<td>q3-med</td>	<td>5.00</td>	<td>2.00</td>	<td>1.00</td>	<td>5.00</td>	</tr>
+<tr class="alt">	<td>1.5*IQR</td>	<td>13.50</td>	<td>9.00</td>	<td>16.50</td>	<td>13.50</td>	</tr>
+<tr>	<td>max-q3</td>	<td>5.00</td>	<td>3.00</td>	<td>2.00</td>	<td>3.00</td>	</tr>
+<tr class="alt">	<td>q1-min</td>	<td>14.00</td>	<td>5.00</td>	<td>2.00</td>	<td>6.00</td>	</tr>
+<tr>	<td>y</td>	<td>3.50</td>	<td>2.50</td>	<td>1.50</td>	<td>0.50</td>	</tr>
+	  </tbody>
+</table>
+
+<p>从表里可以看得出来，其实并没有做太多的工作，就是单纯地把一些重要的统计量计算出来了。（最后的y是什么？我只能说，如果你做胡须图，就一定会用到它）</p>
+
+<p>然后，选中q1、med-q1、q3-med做堆积柱形图：</p>
+
+<p><img src="img/charts/03/07.png" class="position"></img></p>
+<span class="caption text-muted">图7 箱型图雏形</span>
+<p>接下来怎么做就不用我说了吧？但是考虑到广大人民群众的感受，我就写个操作步骤。</p>
+<ol>
+<li><strong>选中q1的柱子，填充色取透明色</strong></li>
+<li><strong>选中med-q1的柱子，填充色为深灰</strong></li>
+<li><strong>选中q3-med的柱子，填充色为浅灰</strong></li>
+<li><strong>添加误差线，删除med-q1的误差线，q1和q3各取负偏差和正偏差</strong></li>
+<li><strong>偏差线的值取1.5*IQR</strong></li>
+<li><strong>向图表添加mean、min、max三条带标记的折线图，线条设置透明色，</strong></li>
+<li><strong>其他改动自己看着办...</strong></li>
+</ol>
+
+<p>这样就成图了：</p>
+
+<p><img src="img/charts/03/08.png" class="position"></img></p>
+<span class="caption text-muted">图8 箱型图雏形改良</span>
+
+<p>自己做的好处在于所有的东西都是可掌控的，知道哪些地方是可改的。另外，也是很有可能激发创造力的。</p>
+
+<br/>
+<p><strong>结束语：</strong>这一期关于箱型图，试用了Excel2016的新增图表，也show了一下在之前版本里面怎么做柱形图，这里其实不得不强调一点：<strong>设置透明色绝对是作图の神功能！</strong></p>
+<p>最后的最后，呼应下标题。所谓这些家伙可以装箱的意思就是每个箱型图里面都装了50%的数据，如果是以人为对象，那么也就是50%的群体，那么剩下没有装进去的呢？一部分在线条里，另一部分就变成了异常值，他们可能是不合群的一些小伙伴们，或许就是我们所需要特别关注的对象。</p>
+
+
+
+
+<h2 class="section-heading">Reference</h2>
+ <a href="https://en.wikipedia.org/wiki/Box_plot" target="_blank">Wiki:Box plot</a><br/>
+ <a href="http://baike.baidu.com/link?url=I28Rma7aA4u-2FcuSjIkRnQ-cD5Ou3do3E6Xiv0-Lsi1Mn-UEdFD4xRa9BdLsVYrUAq4mtLaxwfBuIi748IVSK" target="_blank">百度百科：箱形图</a><br/>
+
+<!-- <p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p> -->
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="charts_page2.html" data-toggle="tooltip" data-placement="top" title="上一篇：旭日图">&larr; Previous Blog</a>
+                    </li>
+                    
+<!--                      <li >
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Back to Top">Back to Top</a>
+                    </li>
+					 -->
+                    <li class="next">
+                        <a href="charts_page4.html" data-toggle="tooltip" data-placement="top" title="下一篇：曲面图">Next Blog &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+			
+        </div>
+		
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!--                 <ul class="list-inline text-center">
+                    <li>
+                        <a href="feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/xyf2015">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul> -->
+                <p class="copyright text-muted">Copyright &copy; Psylife 2015</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>

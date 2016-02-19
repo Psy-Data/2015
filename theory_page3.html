@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN"> 
+<head>
+	<meta charset="utf-8">
+	<title>高斯聚类 | BZR</title>
+	
+	<meta name="description" content="熟悉SPSS的同学都知道，常用的聚类方法有k-means和层次聚类。但是，这个时代的聚类方法，层出不穷，作为开源统计分析软件——R又会带给我们什么方法呢？">
+	
+	<meta name="author" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- 国产高速渲染 -->
+	<meta name="renderer" content="webkit">
+	<link rel="shortcut icon" href="img/favicon.ico">	
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="assets/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="assets/resources/syntax/syntax.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">	
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+<!--             <a class="navbar-brand" href="index.html">Back to Home</a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="index0.html">Home</a>
+                </li>
+                
+                <li>
+                    <a href="http://www.psylife.cc/" target="_blank">About</a>
+                </li>
+                
+                <li>
+                    <a href="http://xyf2015.github.io/blog/" target="_blank">Contact</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+	var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+    /**
+     * Stop 'touchstart' from $collapse propagating to document 
+     */
+    $collapse.addEventListener('touchstart', function(e){
+        e.stopPropagation();
+    })
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     */
+    document.addEventListener('touchstart', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+	
+	<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('img/gmm-bg.png')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>高斯聚类</h1>
+                    
+                    
+                    <h2 class="subheading">聚类算法之高斯混合模型，一种基于概率密度的聚类方法</h2>
+                    
+                    <span class="meta">Posted by 赵炜 on January 10, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<article>
+<!-- Main Content -->
+	<div class="container">
+		<div class="row">
+
+		<!-- Post Container -->
+    		<div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+				
+    			<blockquote>
+  <p>算法介绍部分来自 pluskid 的 Free Mind 博客中的<a href="http://blog.pluskid.org/?page_id=78">聚类算法系列</a>中的<a href="http://blog.pluskid.org/?p=39">漫谈 Clustering (3): Gaussian Mixture Model</a> ,实例部分为 Bruce Zhao 原创。Free Mind 博客采用的是<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">(CC) BY-NC-SA 3.0</a>协议，可以自由分享和修改，但必须标明作者和原出处！<br />
+博主<a href="https://github.com/pluskid">pluskid</a> 是Deep Learning包<a href="https://github.com/dmlc/mxnet">mxnet</a>的贡献者之一，MIT 出身，他的新博客地址为: <a href="http://freemind.pluskid.org/">http://freemind.pluskid.org/</a>。</p>
+</blockquote>
+
+<h2 id="section">算法简介</h2>
+
+<p>这次我们来介绍一个很流行的聚类算法：高斯混合模型 Gaussian Mixture Model (GMM)。事实上，GMM 和 k-means 很像，不过 GMM 是学习出一些概率密度函数来(所以 GMM 除了用在 clustering 上之外，还经常被用于 density estimation)，简单地说，k-means 的结果是每个数据点被 assign 到其中某一个 cluster 了，而 GMM 则给出这些数据点被 assign 到每个 cluster 的概率，又称作 soft assignment 。</p>
+
+<p>得出一个概率有很多好处，因为它的信息量比简单的一个结果要多，比如，我可以把这个概率转换为一个 score，表示算法对自己得出的这个结果的把握。也许我可以对同一个任务，用多个方法得到结果，最后选取“把握”最大的那个结果；另一个很常见的方法是在诸如疾病诊断之类的场所，机器对于那些很容易分辨的情况（患病或者不患病的概率很高）可以自动区分，而对于那种很难分辨的情况，比如，49% 的概率患病，51% 的概率正常，如果仅仅简单地使用 50% 的阈值将患者诊断为“正常”的话，风险是非常大的，因此，在机器对自己的结果把握很小的情况下，会“拒绝发表评论”，而把这个任务留给有经验的医生去解决。</p>
+
+<p>作为一个流行的算法，GMM 肯定有它自己的一个相当体面的归纳偏执了。其实它的假设非常简单，顾名思义，Gaussian Mixture Model ，就是假设数据服从 Mixture Gaussian Distribution ，换句话说，数据可以看作是从数个 Gaussian Distribution 中生成出来的。实际上，我们在 <a href="http://blog.pluskid.org/?p=17">K-means</a> 和 <a href="http://blog.pluskid.org/?p=40">K-medoids</a> 两篇文章中用到的那个例子就是由三个 Gaussian 分布从随机选取出来的。实际上，从 <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">中心极限定理</a> 可以看出，Gaussian 分布(也叫做正态 (Normal) 分布) 这个假设其实是比较合理的。除此之外，Gaussian 分布在计算上也有一些很好的性质，所以，虽然我们可以用不同的分布来随意地构造 XX Mixture Model ，但是还是 GMM 最为流行。另外，Mixture Model 本身其实也是可以变得任意复杂的，通过增加 Model 的个数，我们可以任意地逼近任何连续的概率密分布。</p>
+
+<p>模型的求解推导具体请看这里：<a href="http://blog.pluskid.org/?p=39">http://blog.pluskid.org/?p=39</a></p>
+
+<h2 id="section-1">实例分析</h2>
+
+<h3 id="section-2">问题描述</h3>
+
+<p>现有数据库中有100多所初中三年的语数外成绩，教委想知道每个学校在各个学科上的三年的变化情况。例如A学校的语数外成绩，在三年中是否一直保持优势 …</p>
+
+<h3 id="section-3">问题解决方案</h3>
+
+<p>例如数学，取所有学校<strong>2011</strong>年的<strong>初一</strong>数学成绩的平均分，然后标准化；取对应学校<strong>2012</strong>年的<strong>初二</strong>数学成绩平均分，然后标准化；取对应学校<strong>2013</strong>年的<strong>初三</strong>数学成绩平均分，然后标准化。这样就可以得到三年每个学校数学成绩的相对距离矩阵，然后便可以用于聚类分析；同理可以分别计算语文和外语的相对距离矩阵。若<strong>学校A</strong>语数外三门都分在了第一类（好），则说明<strong>学校A</strong>语数外成绩在三年中的一直保持优势；若某学校语文成绩分在了第三类，而数学和外语分在了第一类，则说明该学校语文为劣势学科，数学和外语为优势学科。根据每个学校的在不同学科上面的分类可以得到该学校三年学科变化特征。</p>
+
+<h3 id="r">R代码及实现</h3>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="lineno"> 1</span> <span class="c1">#导入数据</span>
+<span class="lineno"> 2</span> <span class="kn">library</span><span class="p">(</span>readr<span class="p">)</span>
+<span class="lineno"> 3</span> chinese<span class="o">&lt;-</span> read_tsv<span class="p">(</span><span class="s">&quot;语文聚类.txt&quot;</span><span class="p">,</span>col_names <span class="o">=</span> <span class="bp">T</span><span class="p">,</span>col_types <span class="o">=</span> cols<span class="p">(</span>xxdm <span class="o">=</span> <span class="s">&quot;c&quot;</span><span class="p">))</span>
+<span class="lineno"> 4</span> math <span class="o">&lt;-</span> read_tsv<span class="p">(</span><span class="s">&quot;数学聚类.txt&quot;</span><span class="p">,</span>col_names <span class="o">=</span> <span class="bp">T</span><span class="p">,</span>col_types <span class="o">=</span> cols<span class="p">(</span>xxdm <span class="o">=</span> <span class="s">&quot;c&quot;</span><span class="p">))</span>
+<span class="lineno"> 5</span> english<span class="o">&lt;-</span> read_tsv<span class="p">(</span><span class="s">&quot;外语聚类.txt&quot;</span><span class="p">,</span>col_names <span class="o">=</span> <span class="bp">T</span><span class="p">,</span>col_types <span class="o">=</span> cols<span class="p">(</span>xxdm <span class="o">=</span> <span class="s">&quot;c&quot;</span><span class="p">))</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> <span class="c1">#聚类分析</span>
+<span class="lineno"> 8</span> <span class="kn">library</span><span class="p">(</span>mclust<span class="p">)</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span> <span class="c1"># 语文</span>
+<span class="lineno">11</span> x <span class="o">&lt;-</span> chinese<span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
+<span class="lineno">12</span> mod1 <span class="o">&lt;-</span> Mclust<span class="p">(</span>x<span class="p">,</span>G <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+<span class="lineno">13</span> <span class="kp">summary</span><span class="p">(</span>mod1<span class="p">,</span>parameters <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="lineno">14</span> plot<span class="p">(</span>mod1<span class="p">,</span> what <span class="o">=</span> <span class="s">&quot;classification&quot;</span><span class="p">)</span>
+<span class="lineno">15</span> 
+<span class="lineno">16</span> <span class="c1"># 数学</span>
+<span class="lineno">17</span> y <span class="o">&lt;-</span> math<span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
+<span class="lineno">18</span> mod2 <span class="o">&lt;-</span> Mclust<span class="p">(</span>y<span class="p">,</span>G <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+<span class="lineno">19</span> <span class="kp">summary</span><span class="p">(</span>mod2<span class="p">,</span>parameters <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="lineno">20</span> plot<span class="p">(</span>mod2<span class="p">,</span> what <span class="o">=</span> <span class="s">&quot;classification&quot;</span><span class="p">)</span>
+<span class="lineno">21</span> 
+<span class="lineno">22</span> <span class="c1">#外语</span>
+<span class="lineno">23</span> z <span class="o">&lt;-</span> english<span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
+<span class="lineno">24</span> mod3 <span class="o">&lt;-</span> Mclust<span class="p">(</span>z<span class="p">)</span>
+<span class="lineno">25</span> <span class="kp">summary</span><span class="p">(</span>mod3<span class="p">,</span>parameters <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="lineno">26</span> plot<span class="p">(</span>mod3<span class="p">,</span> what <span class="o">=</span> <span class="s">&quot;classification&quot;</span><span class="p">)</span>
+<span class="lineno">27</span> 
+<span class="lineno">28</span> <span class="c1"># 写出csv</span>
+<span class="lineno">29</span> resul1 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>x<span class="p">,</span>cf<span class="o">=</span>mod1<span class="o">$</span>classification<span class="p">)</span>
+<span class="lineno">30</span> resul2 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>y<span class="p">,</span>cf<span class="o">=</span>mod2<span class="o">$</span>classification<span class="p">)</span>
+<span class="lineno">31</span> resul3 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>z<span class="p">,</span>cf<span class="o">=</span>mod3<span class="o">$</span>classification<span class="p">)</span>
+<span class="lineno">32</span> write_csv<span class="p">(</span>resul1<span class="p">,</span><span class="s">&quot;chinese.csv&quot;</span><span class="p">)</span>
+<span class="lineno">33</span> write_csv<span class="p">(</span>resul2<span class="p">,</span><span class="s">&quot;math.csv&quot;</span><span class="p">)</span>
+<span class="lineno">34</span> write_csv<span class="p">(</span>resul3<span class="p">,</span><span class="s">&quot;english1.csv&quot;</span><span class="p">)</span></code></pre></div>
+
+<h3 id="section-4">结果解读</h3>
+
+<h4 id="section-5">语文</h4>
+
+<p><img src="img/mclust/chinese.png" alt="语文聚类" title="语文聚类" /></p>
+
+<p>图中坐标轴为成绩的标准分。从结果来看：初中语文成绩三年变化稳定，但是学校之间存在差距，可以将学校分为三等：红色表示该学校三年语文成绩一直保持较好的成绩，可以记为“好”；蓝色表示该学校三年语文成绩基本处于中等水平，可以记为“中”；绿色表示该学校三年语文成绩基本处于下游，可以记为“差”。</p>
+
+<h4 id="section-6">数学</h4>
+<p><img src="img/mclust/math.png" alt="数学聚类" title="数学聚类" /><br />
+如图，坐标轴为各年数学成绩标准分，部分学校的标准分非常低，将整体拖向左边；总体来看三年各校数学成绩较为稳定，无明显的变化，与语文成绩类型，故也同样分为三类。<br />
+红色表示该学校三年数学成绩一直保持较好的成绩，可以记为“好”；蓝色表示该学校三年数学成绩基本处于中等水平，可以记为“中”；绿色表示该学校三年数学成绩基本处于下游，可以记为“差”。</p>
+
+<h4 id="section-7">外语</h4>
+<p><img src="img/mclust/english.png" alt="外语" title="外语聚类" /><br />
+如图所示，坐标轴表示外语学科各年成绩的标准分。从聚类的结果来看外语学科与其他学科略有不同：相比13年，14年外语部分学校有进步的趋势。所以将外语分为四档：<br />
+红色表示该学校三年外语成绩处在中上水平，可以记为“中上”；蓝色表示该学校三年外语成绩基本处于中等水平，可以记为“中”；绿色表示该学校三年外语成绩基本处于下游，可以记为“差”。<strong>紫色</strong>表示该学校三年外语成绩进步明显，且处于较好水平，可以记为<strong>“进步（好）”</strong>。</p>
+
+<h3 id="section-8">综合分析</h3>
+<table>
+  <thead>
+    <tr>
+      <th>语文</th>
+      <th>数学</th>
+      <th>外语</th>
+      <th>比例</th>
+      <th>描述</th>
+      <th>代表学校</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>差</td>
+      <td>差</td>
+      <td>差</td>
+      <td>1.96%</td>
+      <td>有较大进步空间</td>
+      <td>启德</td>
+    </tr>
+    <tr class="alt">
+      <td>差</td>
+      <td>差</td>
+      <td>进步(好)</td>
+      <td>3.92%</td>
+      <td>英语进步明显</td>
+      <td>吴泾中学</td>
+    </tr>
+    <tr>
+      <td>差</td>
+      <td>好</td>
+      <td>差</td>
+      <td>1.96%</td>
+      <td>数学优势明显，语文英语有待提高</td>
+      <td>区少体校</td>
+    </tr>
+    <tr class="alt">
+      <td>差</td>
+      <td>好</td>
+      <td>中上</td>
+      <td>1.96%</td>
+      <td>数学优势明显，英语存在优势，语文有待提高。</td>
+      <td>浦江一中</td>
+    </tr>
+    <tr>
+      <td>好</td>
+      <td>好</td>
+      <td>进步(好)</td>
+      <td>1.96%</td>
+      <td>三好学校且英语进步明显</td>
+      <td>协和尚音</td>
+    </tr>
+    <tr class="alt">
+      <td>好</td>
+      <td>好</td>
+      <td>中</td>
+      <td>5.88%</td>
+      <td>语文、数学优势明显，英语有一定提升空间</td>
+      <td>上师初中</td>
+    </tr>
+    <tr>
+      <td>好</td>
+      <td>好</td>
+      <td>中上</td>
+      <td>7.84%</td>
+      <td>三好学校</td>
+      <td>七宝实中</td>
+    </tr>
+    <tr class="alt">
+      <td>好</td>
+      <td>中</td>
+      <td>中上</td>
+      <td>1.96%</td>
+      <td>语文优势明显，英语存在优势，数学有一定提升空间</td>
+      <td>七宝二中</td>
+    </tr>
+    <tr>
+      <td>中</td>
+      <td>中</td>
+      <td>差</td>
+      <td>3.92%</td>
+      <td>语文、数学有一定进步空间，外语有待提高</td>
+      <td>龙茗中学</td>
+    </tr>
+    <tr class="alt">>
+      <td>中</td>
+      <td>中</td>
+      <td>进步(好)</td>
+      <td>21.57%</td>
+      <td>英语进步明显，语文、数学有一定提升空间</td>
+      <td>罗阳中学</td>
+    </tr>
+    <tr
+      <td>中</td>
+      <td>中</td>
+      <td>中</td>
+      <td>15.69%</td>
+      <td>三科有一定进步空间。</td>
+      <td>航华中学</td>
+    </tr>
+    <tr class="alt">>
+      <td>中</td>
+      <td>中</td>
+      <td>中上</td>
+      <td>31.37%</td>
+      <td>英语存在优势，语文数学有一定提升空间。</td>
+      <td>梅陇中学</td>
+    </tr>
+  </tbody>
+</table>
+
+
+				
+				<p class="text-right">
+				<a href="/">Bruce Zhao</a>
+				<span class="time">
+				/
+				<time >2016-01-10</time>
+				</span>
+				<br>
+				<span>
+					<strong><em>Published under<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/">(CC) BY-NC-SA 3.0 CN</a>.
+					</em></strong>
+				</span>
+				</p>
+	
+					<hr>
+
+                <ul class="pager">
+
+					
+					<li class="previous"><a href="theory_page2.html" data-toggle="tooltip" data-placement="top" title="上一篇：方差分析">&larr; PREVIOUS BLOG</a></li>
+					
+					
+					<li class="next"><a href="theory_page4.html" data-toggle="tooltip" data-placement="top" title="下一篇：信号检测理论">NEXT BLOG &rarr;</a></li>
+					
+
+                </ul>
+                
+            </div>
+			
+        </div>
+		
+    </div>
+</article>
+
+<!-- mathjax -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+
+<div id="back-top">
+  <a href="#section" title="top">
+	<i class="fa fa-chevron-up"></i>
+  </a>
+</div>
+<script type="text/javascript" src="resources/jquery/jquery-1.8.3.js"></script>
+<script>
+	$('#back-top').hide();
+	$(document).ready(function () {
+	$(window).scroll(function () {
+    if ($(this).scrollTop() > 250) {
+      $('#back-top').fadeIn();
+    } else {
+      $('#back-top').fadeOut();
+    }
+  });
+  $('#back-top a').click(function () {
+    $('body,html').animate({
+      scrollTop: 0
+    }, 800);
+    return false;
+  });
+});
+</script>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!--                 <ul class="list-inline text-center">
+                    <li>
+                        <a href="feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/xyf2015">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul> -->
+                <p class="copyright text-muted">Copyright &copy; Psylife 2015</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+	<script type="text/javascript" src="assets/resources/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/blog.js"></script>
+	
+	<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+</body>
+</html>
+
+
+
+

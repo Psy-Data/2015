@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PsyLife-data team">
+
+    <title>Chart Blog 1</title>
+
+    <link rel="canonical" href="/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="css/syntax.css">
+
+    <!-- Custom Fonts -->
+<!-- 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	 <style>
+    @media only screen and (min-width: 641px) {
+      .am-offcanvas {
+        display: block;
+        position: static;
+        background: none;
+      }
+
+      .am-offcanvas-bar {
+        position: static;
+        width: auto;
+        background: none;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      .am-offcanvas-bar:after {
+        content: none;
+      }
+
+    }
+
+    @media only screen and (max-width: 640px) {
+      .am-offcanvas-bar .am-nav>li>a {
+        color:#ccc;
+        border-radius: 0;
+        border-top: 1px solid rgba(0,0,0,.3);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05)
+      }
+
+      .am-offcanvas-bar .am-nav>li>a:hover {
+        background: #404040;
+        color: #fff
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-nav-header {
+        color: #777;
+        background: #404040;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+        text-shadow: 0 1px 0 rgba(0,0,0,.5);
+        border-top: 1px solid rgba(0,0,0,.3);
+        font-weight: 400;
+        font-size: 75%
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-active>a {
+        background: #1a1a1a;
+        color: #fff;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+      }
+
+      .am-offcanvas-bar .am-nav>li+li {
+        margin-top: 0;
+      }
+    }
+
+    .my-head {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .my-button {
+      position: fixed;
+      top: 0;
+      right: 0;
+      border-radius: 0;
+    }
+    .my-sidebar {
+      padding-right: 0;
+      border-right: 1px solid #eeeeee;
+    }
+
+    .my-footer {
+      border-top: 1px solid #eeeeee;
+      padding: 10px 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+	img.position{
+	margin:auto;
+	}
+	img.bq{
+	display:inline;
+	height:80px;
+	vertical-align:text-bottom;
+	}
+#customers
+  {
+  width:100%;
+  border-collapse:collapse;
+  text-align:center;
+
+
+  }
+
+#customers td, #customers th
+  {
+  font-size:1em;
+  border:1px solid gray;
+  padding:3px 7px 2px 7px;
+  	vertical-align:middle;
+	  text-align:center;
+	  width:10%;
+  }
+
+#customers th{
+background-color:gray;
+color:white;
+
+}
+
+#customers tr.alt td 
+  {
+  color:#000000;
+  background-color:rgb(240,240,240);
+    width:20%;
+		vertical-align:middle;
+  }
+  </style>
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+<!--             <a class="navbar-brand" href="index.html">Back to Home</a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="index0.html">Home</a>
+                </li>
+                
+                <li>
+                    <a href="http://www.psylife.cc/" target="_blank">About</a>
+                </li>
+                
+                <li>
+                    <a href="http://xyf2015.github.io/blog/" target="_blank">Contact</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('img/charts/01/charts1-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Excel2016系列之——树状图</h1>
+                    
+                    <h2 class="subheading">群雄逐鹿，军阀割据</h2>
+                    
+                    <span class="meta">整理人：徐逸峰  &nbsp;&nbsp;&nbsp;&nbsp; 2015-12-31</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+ 
+<article>
+    <div class="container">
+	
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>微软在2015年下半年发布了Office 2016系列，似乎延续了每三年一个版本的传统，算是一家不怎么跳票的公司吧？说起改动，最直观的的就是界面上的变化，比如在页面顶部根据不同的部件染上了不同的颜色（不得不提一句，看着微软的配色方案总觉得口味比较重...）。还有在默认中文字体上，再也不是宋体当道了，而是比较奇怪的等线（原因不明）。</p>
+
+				<p>好吧，盐归正传。Office升级到2016版本，首先就看到了图表方面的变动，传统的图表没有太大变化，倒是加了几个新的图表，看来是时候展现真正的技术了...</p>
+				
+				<p>牛逼什么的就不吹了，还是放点干货吧。以下进入 <strong>Excel2016系列之——树状图</strong>。</p>
+				
+
+<h2 class="section-heading">What is Treemap？</h2>
+
+<p>首先，允许我装个逼，写个英文，希望不犯法。其实标题里的treemap就是树状图的英文名。</p>
+
+<p>你可能会觉得它长这样：</p><p><img src="img/charts/01/02.jpg" class="position"></img></p>
+<span class="caption text-muted">图1 树状图幻想a</span>
+<p>也可能会觉得它长这样：</p><p><img src="img/charts/01/01.jpg" class="position"></img></p>
+<span class="caption text-muted">图2 树状图幻想b</span>
+
+<p>这种时候，我只能说，你太天真了！</p>
+
+<p>其实他长这样：</p>
+<p><img src="img/charts/01/03.png" class="position"></img></p>
+<span class="caption text-muted">图3 树状图</span>
+<p>这不是坑爹呢吗。<img src="img/charts/01/04.jpg" class="bq"></img>哪里长得像树了？</p>
+
+<p>但是很遗憾的告诉你，歪果仁就是这么想的...</p>
+<p>其实，反过来想想，这确实也是一种表现数据的形式，难道不是么？</p>
+
+
+<h2 class="section-heading">How to Make a Treemap by Excel?</h2>
+
+<p>扯了一大段犊子，原谅我放荡不羁废话多。这里正式进入正片环节。其实也就是怎么做树状图，以及在什么时候用树状图比较好。</p>
+
+<!-- <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span></p> -->
+
+<p>首先，先要理解树状图，请允许我抄一段。</p>
+
+<blockquote>Treemap is a space-constrained visualization of hierarchical structures. It is very effective in showing attributes of leaf nodes using size and color coding. Treemap enables users to compare nodes and sub-trees even at varying depth in the tree, and help them spot patterns and exceptions.</blockquote>
+<blockquote>
+Treemap was first designed by Ben Shneiderman during the 1990s. For more information, read the <a href="http://www.cs.umd.edu/hcil/treemap-history/">historical summary of treemaps,</a> their growing set of applications, and the many other implementations. Treemaps are a continuing topic of research and application at the HCIL.</blockquote>
+
+<p>反正大意就是树状图在反映不同类别以及不同层次的数据方面相关较好，能够显示不同数据在不同根节点和子节点上的表现，并帮助发现特定的规律或是异常情况。</p>
+<p>从实际应用的语言来说，只要是算百分比，尤其类目和层次关系较多的情况下，树状图会是你最好的助手。可以看看这么一个例子。</p>
+
+<p><img src="img/charts/01/05.png" class="position"></img></p>
+<span class="caption text-muted">图4 各部分评价权重树状图</span>
+
+<p>图4是在撰写《2014-15学年学校办学绩效评估报告》（其实也就是三级四类）的时候，作为反映不同部门在绩效评价中重要性和参与度。很直观的就可以看到除去数据评价的部分，督导室和教育学院手握学校的身杀大权，果断成为面积裱。相对的，有些部门连名字都显示不全了，更不要说是权重分了...</p>
+<p>图4是最终的表现形式，实际上，作图是需要步骤的，首先就是组织数据：</p>
+<p>最初，数据是这个样子的：</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>部门</th>
+      <th>评价项目数</th>
+      <th>中小学</th>
+      <th>高中</th>
+
+    </tr>
+  </thead> 
+  <tbody>
+    <tr>
+<td>督导室</td>	<td>9</td>	<td>19.00</td>	<td>19.33</td>
+    </tr>
+	
+    <tr class="alt">
+<td>法制科</td>	<td>3</td>	<td>3.25</td>	<td>3.25</td>
+    </tr>
+	<tr>
+<td>工会</td>	<td>2</td>	<td>1.50</td>	<td>1.50</td>
+
+    </tr>
+    <tr class="alt">
+<td>后勤服务中心</td>	<td>2</td>	<td>1.50</td>	<td>1.50</td>
+
+    </tr>
+	<tr>
+<td>计财科</td>	<td>2</td>	<td>1.50</td>	<td>1.50</td>
+
+    </tr>
+    <tr class="alt">
+<td>教育学院</td>	<td>15</td>	<td>12.75</td>	<td>17.08</td>
+
+    </tr>
+<tr>	<td>普教二科</td>	<td>5</td>	<td>4.08</td>	<td>6.58</td>	</tr>
+<tr class="alt">	<td>普教一科</td>	<td>7</td>	<td>5.67</td>	<td>15.50</td>	</tr>
+<tr>	<td>人保科</td>	<td>2</td>	<td>1.50</td>	<td>1.50</td>	</tr>
+<tr class="alt">	<td>审计室</td>	<td>1</td>	<td>0.75</td>	<td>0.75</td>	</tr>
+<tr>	<td>团工委</td>	<td>1</td>	<td>1.00</td>	<td>1.00</td>	</tr>
+<tr class="alt">	<td>组织科</td>	<td>1</td>	<td>0.50</td>	<td>0.50</td>	</tr>
+<tr>	<td>数据评价</td>	<td></td>	<td>47.00</td>	<td>30.00</td>	</tr>
+	  </tbody>
+</table>
+
+<p>如果直接做树状图会变成这样：</p>
+<p><img src="img/charts/01/06.png" class="position"></img></p>
+<span class="caption text-muted">图5 excel树状图示例a</span>
+<p>仔细看来，这里有两个问题：</p>
+<ol>
+<li><strong>所有部门被分为不同类。</strong></li>
+<li><strong>现实的数据是评价项目数，但是实际的区块内显示的是部分评分情况（总之，全乱套了）。</strong></li>
+</ol>
+<p>那么，如何才能得到像图4那样的结果呢？</p>
+<p>只需要把数据变成这样：</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>评价对象</th>
+      <th>评价方式</th>
+      <th>评价部门</th>
+      <th>权重</th>
+
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td>义务教育</td>	<td>部门评价</td>	<td>督导室</td>	<td>19.00</td>	</tr>
+<tr class="alt">	<td></td>	<td></td>	<td>法制科</td>	<td>3.25</td>	</tr>
+<tr>	<td></td>	<td></td>	<td>工会</td>	<td>1.50</td>	</tr>
+<tr class="alt">	<td></td>	<td></td>	<td>后勤服务中心</td>	<td>1.50</td>	</tr>
+<tr>	<td></td>	<td></td>	<td>计财科</td>	<td>1.50</td>	</tr>
+<tr class="alt">	<td></td>	<td></td>	<td>教育学院</td>	<td>12.75</td>	</tr>
+<tr>	<td></td>	<td></td>	<td>普教二科</td>	<td>4.08</td>	</tr>
+<tr class="alt">	<td></td>	<td></td>	<td>普教一科</td>	<td>5.67</td>	</tr>
+<tr>	<td></td>	<td></td>	<td>人保科</td>	<td>1.50</td>	</tr>
+<tr class="alt">	<td></td>	<td></td>	<td>审计室</td>	<td>0.75</td>	</tr>
+<tr>	<td></td>	<td></td>	<td>团工委</td>	<td>1.00</td>	</tr>
+<tr class="alt">	<td></td>	<td></td>	<td>组织科</td>	<td>0.50</td>	</tr>
+<tr>	<td></td>	<td>数据评价</td>	<td>数据评价</td>	<td>47.00</td>	</tr>
+<tr class="alt">	<td>高中</td>	<td>部门评价</td>	<td>督导室</td>	<td>19.33</td>	</tr>
+<tr>	<td></td>	<td></td>	<td>法制科</td>	<td>3.25</td>	</tr>
+<tr class="alt">	<td></td>	<td></td>	<td>工会</td>	<td>1.50</td>	</tr>
+<tr>	<td></td>	<td></td>	<td>后勤服务中心</td>	<td>1.50</td>	</tr>
+<tr class="alt">	<td></td>	<td></td>	<td>计财科</td>	<td>1.50</td>	</tr>
+<tr>	<td></td>	<td></td>	<td>教育学院</td>	<td>17.08</td>	</tr>
+<tr class="alt">	<td></td>	<td></td>	<td>普教二科</td>	<td>6.58</td>	</tr>
+<tr>	<td></td>	<td></td>	<td>普教一科</td>	<td>15.50</td>	</tr>
+<tr class="alt">	<td></td>	<td></td>	<td>人保科</td>	<td>1.50</td>	</tr>
+<tr>	<td></td>	<td></td>	<td>审计室</td>	<td>0.75</td>	</tr>
+<tr class="alt">	<td></td>	<td></td>	<td>团工委</td>	<td>1.00</td>	</tr>
+<tr>	<td></td>	<td></td>	<td>组织科</td>	<td>0.50</td>	</tr>
+<tr class="alt">	<td></td>	<td>数据评价</td>	<td>数据评价</td>	<td>30.00</td>	</tr>
+
+	  </tbody>
+</table>
+
+<p>然后选中作图：</p>
+<p><img src="img/charts/01/07.png" class="position"></img></p>
+<span class="caption text-muted">图6 excel树状图示例b</span>
+<p>这样就可以做出图6了，至于再之后的配色和重点突出等方面，就仁者见仁，智者见智了。以我的水平，也就改成图4了。同志们自己努力吧。</p>
+
+<br/>
+<p><strong>结束语：</strong>终于可以收尾了，484觉得我有标题党的嫌疑？其实不然，第一次看到树状图的时候，我就觉得它很像三国初期，群雄逐鹿中原的样子，如果把当时的中国地图拉伸一下，变成矩形的，不就变成树状图了么？然后如果我们利用一张张树状图是不是也能推演一下三国群雄互相吞并的进程呢（比如，先规定三国群雄的颜色，然后把分割成各个时间点，最后只要呈现每个时间点上的颜色块就可以了，最终可以从五光十色变成三色，再到一色）。</p>
+<p>或许，树状图本身并不具备这样的故事和含义，不过我觉得其实是一种启发，生活中处处是智慧，数据可视化的图表皆可从生活中找到灵感和资源。</p>
+
+<h2 class="section-heading">Reference</h2>
+ <p><a href="http://www.cs.umd.edu/hcil/treemap/" target="_blank">HCIL: Treemap</a></p>
+
+
+<!-- <p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p> -->
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="这是第一篇">No Previous</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="charts_page2.html" data-toggle="tooltip" data-placement="top" title="下一篇：旭日图">Next Blog &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+			
+        </div>
+		
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!--                 <ul class="list-inline text-center">
+                    <li>
+                        <a href="feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/xyf2015">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul> -->
+                <p class="copyright text-muted">Copyright &copy; Psylife 2015</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>

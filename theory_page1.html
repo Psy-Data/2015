@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PsyLife-data team">
+
+    <title>Theory Blog 1</title>
+
+    <link rel="canonical" href="/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="css/syntax.css">
+
+    <!-- Custom Fonts -->
+<!-- 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	 <style>
+    @media only screen and (min-width: 641px) {
+      .am-offcanvas {
+        display: block;
+        position: static;
+        background: none;
+      }
+
+      .am-offcanvas-bar {
+        position: static;
+        width: auto;
+        background: none;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      .am-offcanvas-bar:after {
+        content: none;
+      }
+
+    }
+
+    @media only screen and (max-width: 640px) {
+      .am-offcanvas-bar .am-nav>li>a {
+        color:#ccc;
+        border-radius: 0;
+        border-top: 1px solid rgba(0,0,0,.3);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05)
+      }
+
+      .am-offcanvas-bar .am-nav>li>a:hover {
+        background: #404040;
+        color: #fff
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-nav-header {
+        color: #777;
+        background: #404040;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+        text-shadow: 0 1px 0 rgba(0,0,0,.5);
+        border-top: 1px solid rgba(0,0,0,.3);
+        font-weight: 400;
+        font-size: 75%
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-active>a {
+        background: #1a1a1a;
+        color: #fff;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+      }
+
+      .am-offcanvas-bar .am-nav>li+li {
+        margin-top: 0;
+      }
+    }
+
+    .my-head {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .my-button {
+      position: fixed;
+      top: 0;
+      right: 0;
+      border-radius: 0;
+    }
+    .my-sidebar {
+      padding-right: 0;
+      border-right: 1px solid #eeeeee;
+    }
+
+    .my-footer {
+      border-top: 1px solid #eeeeee;
+      padding: 10px 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+		img.position{
+	margin:auto;
+	width:80%
+	}
+	img.bq{
+	display:inline;
+	height:80px;
+	vertical-align:text-bottom;
+	}
+#customers
+  {
+  width:100%;
+  border-collapse:collapse;
+  text-align:center;
+
+
+  }
+
+#customers td, #customers th
+  {
+  font-size:1em;
+  border:1px solid gray;
+  padding:3px 7px 2px 7px;
+  	vertical-align:middle;
+	  text-align:center;
+	  width:10%;
+  }
+
+#customers th{
+background-color:gray;
+color:white;
+
+}
+
+#customers tr.alt td 
+  {
+  color:#000000;
+  background-color:rgb(240,240,240);
+    width:20%;
+		vertical-align:middle;
+  }
+ div.formula{
+ border:0px solid rgb(200,200,200);width:80%;margin:auto
+ }
+ 
+img.formula{
+margin:auto;
+height:30px;
+}
+img.vari{
+	display:inline;
+	height:25px;
+	vertical-align:text-bottom;
+}
+  </style>
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+<!--             <a class="navbar-brand" href="index.html">Back to Home</a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                
+                <li>
+                    <a href="http://www.psylife.cc/" target="_blank">About</a>
+                </li>
+                
+                <li>
+                    <a href="http://xyf2015.github.io/blog/" target="_blank">Contact</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('img/theory/01/01.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>指数平滑法</h1>
+                    
+                    <h2 class="subheading">磨平时间的棱角</h2>
+                    
+                    <span class="meta">整理人：张静  &nbsp;&nbsp;&nbsp;&nbsp; 2015-01-15</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+ 
+<article>
+    <div class="container">
+	
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+<h2 class="section-heading">指数平滑原理</h2>			
+			
+				<p>指数平滑是加权移动平均的进一步发展和完善，最初由美国经济学家布朗(Robert G Brown)于1959年首次提出。所谓平滑就是通过某种平均方式消除历史统计序列中的随机波动。指数平滑法是通过计算指数平滑值，配合一定的时间序列预测模型对现象的未来进行预测。其原理是任一期的指数平滑值都是本期实际观察值与前一期指数平滑值的加权平均。根据平滑次数不同，指数平滑法一般可分为：一次指数平滑、二次指数平滑和三次指数平滑等。</p>
+
+<h3 >（1）一次指数平滑</h3>	
+				
+<p>当时间数列无明显的趋势变化，可用一次指数平滑进行预测。一次指数平滑来预测目标的本期实际值和本期预测值为基数，分别给予不同的权数求出指数平滑值作为未来的预测值。其指数平滑计算公式可表示为：</p>
+
+<div class="formula">
+<img src="img/theory/01/fo01.png" class="formula"/>
+</div>
+
+<p>其中：<img src="img/theory/01/fo02.png" class="vari"/>和<img src="img/theory/01/fo03.png" class="vari"/>分别为 t 期和 t-1 期的一次指数平滑值，α(0<α<1)为平滑常数，<img src="img/theory/01/fo04.png" class="vari"/>为 t 时期的观测值。<img src="img/theory/01/fo02.png" class="vari"/>是<img src="img/theory/01/fo04.png" class="vari"/>和<img src="img/theory/01/fo03.png" class="vari"/>的加权算数平均数，随着α取值的大小变化，决定<img src="img/theory/01/fo04.png" class="vari"/>和<img src="img/theory/01/fo03.png" class="vari"/>对<img src="img/theory/01/fo02.png" class="vari"/>的影响程度，当α取1时，<img src="img/theory/01/fo02.png" class="vari"/> = <img src="img/theory/01/fo04.png" class="vari"/>；当α取0时，<img src="img/theory/01/fo02.png" class="vari"/> = <img src="img/theory/01/fo03.png" class="vari"/>。</p>
+<!-- <pre><code s>select 12312312 from aaa</code></pre> -->
+
+<p><img src="img/theory/01/fo02.png" class="vari"/>具有逐期追溯性质，可探源至<img src="img/theory/01/fo05.png" class="vari"/>为止，包括全部数据。其过程中，平滑常数以指数形式递减，故称之为指数平滑法。指数平滑常数取值至关重要。平滑常数决定了平滑水平以及对预测值与实际结果之间差异的响应速度。平滑常数α越接近于1，远期实际值对本期平滑值影响程度的下降越迅速；平滑常数α越接近于0，远期实际值对本期平滑值影响程度的下降越缓慢。由此，当时间数列相对平稳时，可取较大的α；当时间数列波动较大时，应取较小的α，以不忽略远期实际值的影响。</p>
+<p>有三种方法可以确定a：</p>
+
+<ol>
+<li><strong>差分-比率-均值法。</strong><br/>该方法认为，a 取值的大小关键取决于 t 期数本身变化的大小幅度，具体求取步骤为先根据时间序列<img src="img/theory/01/fo04.png" class="vari"/>的值求出<img src="img/theory/01/fo06.png" class="vari"/>，根据一级差分后的新序列<img src="img/theory/01/fo07.png" class="vari"/>，求出<img src="img/theory/01/fo08.png" class="vari"/>即其算数平均数，再分别用<img src="img/theory/01/fo07.png" class="vari"/> / <img src="img/theory/01/fo08.png" class="vari"/>得到新序列<img src="img/theory/01/fo09.png" class="vari"/>，求<img src="img/theory/01/fo09.png" class="vari"/>的算数平均值<img src="img/theory/01/fo10.png" class="vari"/>，即为较为准确的a值。
+</li>
+<li><strong>经验判断法。</strong><br/>主要依赖于时间序列的发展趋势和预测者的经验作出判断，当时间序列呈现较稳定的水平趋势时，选择较小的a，一般在0.05-0.2之间取值；当时间序列有波动，但长期趋势变化不大时，可以选择稍大的a值，常在0.1-0.4之间取值；当时间序列波动很大，长期趋势变化幅度较大，呈现明显且迅速的上升或下降趋势时，宜选择较大的a值，可在0.6-0.8之间选值，以使预测模型灵敏度高些，能迅速跟上数据的变化；当时间序列数据是上升（或下降）的发展趋势类型，a应该选取较大的值，常在0.6-0.1之间。
+</li>
+
+<li><strong>试算法。</strong><br/>根据时间序列情况，参照经验判断法，大致确定a的取值范围，然后取几个a进行试算，比较不同a值下的预测标准误差，选取预测标准误差值最小的a。
+</li>
+</ol>
+<p>需要注意的是，在使用指数平滑法开始计算<img src="img/theory/01/fo11.png" class="vari"/>初始值时，如果能够找到<img src="img/theory/01/fo12.png" class="vari"/>以前的历史资料，那么，初始值<img src="img/theory/01/fo13.png" class="vari"/>的确定是不成问题的。数据较少时可用全期平均、移动平均法；数据较多时，可用最小二乘法。</p>
+
+<p>如果仅有从<img src="img/theory/01/fo12.png" class="vari"/>开始的数据，那么确定初始值的方法有：</p>
+<p>
+<ol>
+<li>取<img src="img/theory/01/fo13.png" class="vari"/> = <img src="img/theory/01/fo12.png" class="vari"/>；
+</li>
+<li>待积累若干数据后，取S1等于前面若干数据的简单算术平均数，如：<img src="img/theory/01/fo14.png" class="vari"/>。
+</li>
+</ol>
+</p>
+<h3 >（2）二次指数平滑</h3>	
+
+<p>二次指数平滑是在一次指数平滑的基础上，再做一次平滑．它适用于具有线性趋势的时间数列．其指数平滑计算公式可表示为：</p>
+<div class="formula">
+<img src="img/theory/01/fo15.png" class="formula"/>
+</div>
+
+<p>其中<img src="img/theory/01/fo02.png" class="vari"/>和<img src="img/theory/01/fo16.png" class="vari"/>分别t期的一次、二次指数平滑值，α(0<α<1)为平滑常数。</p>
+
+<h3 >（3）三次指数平滑</h3>
+<p>三次指数平滑是在二次指数平滑的基础上再做一次平滑．它适用于具有线性趋势的时间数列．其指数平滑计算公式可表示为：</p>
+<div class="formula">
+<img src="img/theory/01/fo17.png" class="formula"/>
+</div>
+
+<p>其中<img src="img/theory/01/fo16.png" class="vari"/>和<img src="img/theory/01/fo18.png" class="vari"/>分别t期的二次、三次指数平滑值，α(0<α<1)为平滑常数。</p>
+
+<h2 class="section-heading">应用实例</h2>
+
+<p>以计算常模过程中的应用为例对指数平滑算法的计算进行说明。逻辑推理得分原始数据见下表。</p>
+
+<p>我们选择了PCDP中相关的逻辑推理数据，如下:</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>百分位</th>
+      <th>日龄段1</th>
+      <th>日龄段2</th>
+	  <th>日龄段3</th>
+	  <th>日龄段4</th>
+	  <th>日龄段5</th>
+	  <th>...</th>
+
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td style="background-color:rgb(244,244,244)">0.1</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">1</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">5</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">10</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">15</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">20</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>1.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">25</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>2.25</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">30</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>5.50</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">35</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>6.75</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">40</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>2.00</td>	<td>7.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">45</td>	<td>0.00</td>	<td>1.00</td>	<td>0.00</td>	<td>3.00</td>	<td>8.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">50</td>	<td>0.00</td>	<td>1.00</td>	<td>0.00</td>	<td>4.00</td>	<td>8.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">55</td>	<td>1.00</td>	<td>2.00</td>	<td>1.00</td>	<td>5.00</td>	<td>9.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">60</td>	<td>2.00</td>	<td>3.00</td>	<td>3.00</td>	<td>6.00</td>	<td>9.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">65</td>	<td>3.00</td>	<td>5.00</td>	<td>5.00</td>	<td>7.00</td>	<td>9.25</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">70</td>	<td>4.70</td>	<td>6.00</td>	<td>7.00</td>	<td>8.00</td>	<td>10.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">75</td>	<td>5.00</td>	<td>7.00</td>	<td>7.00</td>	<td>9.00</td>	<td>10.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">80</td>	<td>6.00</td>	<td>8.00</td>	<td>8.00</td>	<td>10.00</td>	<td>10.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">85</td>	<td>7.00</td>	<td>8.00</td>	<td>9.00</td>	<td>10.00</td>	<td>11.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">90</td>	<td>8.00</td>	<td>9.00</td>	<td>9.00</td>	<td>11.00</td>	<td>12.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">95</td>	<td>10.00</td>	<td>10.00</td>	<td>11.00</td>	<td>14.00</td>	<td>13.75</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">99</td>	<td>12.18</td>	<td>12.94</td>	<td>13.10</td>	<td>16.72</td>	<td>17.15</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">99.9</td>	<td>13.00</td>	<td>14.00</td>	<td>18.05</td>	<td>19.62</td>	<td>17.92</td>	<td>...</td>	</tr>
+	  </tbody>
+</table>
+
+<p>可以对此作图：</p>
+
+<p><img src="img/theory/01/02.png"/ class="position"></p>
+<span class="caption text-muted">图1 逻辑推理原始数据百分位图</span>
+
+
+<p>取a=0.5，则根据一次指数平滑公式<img src="img/theory/01/fo19.png" class="vari"/>计算一次指数平滑后的结果及平滑预测曲线。</p>
+
+<p>可以看到，中间p50左右的曲线基本服从单调递增的规律，但是百分比越大或越小的曲线则出现了一定的波动，比如，最上面的p99.9曲线在年龄段从4-5的时候出现了下滑。出现这些情况的主要原因和数据本身的抽样有关。导致在部分年龄段并未出现相应的极大或极小值、或者本身这一区间的人群质量要远高于/远低于其他年龄层次的群体。</p>
+
+<p>对于这种不规则的曲线，并且和时间有关，那么就可以考虑采用指数平滑的方式进行修正了。如下列图表</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>百分位</th>
+      <th>日龄段1</th>
+      <th>日龄段2</th>
+	  <th>日龄段3</th>
+	  <th>日龄段4</th>
+	  <th>日龄段5</th>
+	  <th>...</th>
+
+
+	
+  </thead> 
+  <tbody>
+    </tr>
+	<tr>	<td style="background-color:rgb(244,244,244)">0.1</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">1</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">5</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">10</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">15</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">20</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.50</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">25</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>1.13</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">30</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>2.75</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">35</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>3.38</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">40</td>	<td>0.00</td>	<td>0.00</td>	<td>0.00</td>	<td>1.00</td>	<td>4.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">45</td>	<td>0.00</td>	<td>0.50</td>	<td>0.25</td>	<td>1.63</td>	<td>4.81</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">50</td>	<td>0.00</td>	<td>0.50</td>	<td>0.25</td>	<td>2.13</td>	<td>5.06</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">55</td>	<td>1.00</td>	<td>1.50</td>	<td>1.25</td>	<td>3.13</td>	<td>6.06</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">60</td>	<td>2.00</td>	<td>2.50</td>	<td>2.75</td>	<td>4.38</td>	<td>6.69</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">65</td>	<td>3.00</td>	<td>4.00</td>	<td>4.50</td>	<td>5.75</td>	<td>7.50</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">70</td>	<td>4.70</td>	<td>5.35</td>	<td>6.18</td>	<td>7.09</td>	<td>8.54</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">75</td>	<td>5.00</td>	<td>6.00</td>	<td>6.50</td>	<td>7.75</td>	<td>8.88</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">80</td>	<td>6.00</td>	<td>7.00</td>	<td>7.50</td>	<td>8.75</td>	<td>9.38</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">85</td>	<td>7.00</td>	<td>7.50</td>	<td>8.25</td>	<td>9.13</td>	<td>10.06</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">90</td>	<td>8.00</td>	<td>8.50</td>	<td>8.75</td>	<td>9.88</td>	<td>10.94</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">95</td>	<td>10.00</td>	<td>10.00</td>	<td>10.50</td>	<td>12.25</td>	<td>13.00</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">99</td>	<td>12.18</td>	<td>12.56</td>	<td>12.83</td>	<td>14.78</td>	<td>15.96</td>	<td>...</td>	</tr>
+<tr>	<td style="background-color:rgb(244,244,244)">99.9</td>	<td>13.00</td>	<td>13.50</td>	<td>15.78</td>	<td>17.70</td>	<td>17.81</td>	<td>...</td>	</tr>
+	  </tbody>
+</table>
+
+
+<p><img src="img/theory/01/03.png"/ class="position"></p>
+<span class="caption text-muted">图2 一次指数平滑百分位图</span>
+
+<!-- <blockquote></blockquote> -->
+
+<p>可以看到，数据整体的平滑度有所提升。在各个百分为上均相对符合一个同质性群体的成长。</p>
+
+<p>再看看二次指数平滑的数据：</p>
+
+<p><img src="img/theory/01/04.png"/ class="position"></p>
+<span class="caption text-muted">图3 一次指数平滑百分位图</span>
+
+<p>是不是觉得很神奇？整个数据都“光滑”了，而且符合单调递增的趋势。</p>
+<p>这样局在一定程度上消除了由于群体本身的差异不同导致出现的年龄间误差。</p>
+
+<br/>
+<p><strong>结束语：</strong></p>
+
+<p>在运用指数平滑进行分析时，关键是对平滑系数的设置。</p>
+<p>但是，也需要指出，任何方法使用都有局限性和缺陷。指数平滑法的最大缺陷就在于，原来的真值被替代了，对于我们看到的单调递增数据来说，平滑后的数据可能通常会比真值要更小（因为受到前一个数据点的影响，拉低了水平），因此在实际的常模使用中，我们也对此做出一些调整，在保证了每个区间的“形状”不变的情况下，对其进行了真值的校验，以确定其需要平移的单位量。（这一期就不细说了）</p>
+
+
+<h2 class="section-heading">Reference</h2>
+
+<p><a href="http://wiki.mbalib.com/wiki/%E6%8C%87%E6%95%B0%E5%B9%B3%E6%BB%91%E6%B3%95" target="_blank">Wiki：指数平滑法</a><br/>
+<a href="http://jpkc.ojc.zj.cn/gltj/uploads/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E5%AE%9E%E9%AA%8C%EF%BC%88%E5%88%9D%E7%A8%BF%EF%BC%89.pdf" target="_blank">PDF：概率统计实验</a></p>
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="这是第一篇">No Previous</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="theory_page2.html" data-toggle="tooltip" data-placement="top" title="下一篇：方差分析">Next Blog &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+			
+        </div>
+		
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!--                 <ul class="list-inline text-center">
+                    <li>
+                        <a href="feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/xyf2015">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul> -->
+                <p class="copyright text-muted">Copyright &copy; Psylife 2015</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>

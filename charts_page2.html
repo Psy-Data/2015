@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PsyLife-data team">
+
+    <title>Chart Blog 2</title>
+
+    <link rel="canonical" href="/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="css/syntax.css">
+
+    <!-- Custom Fonts -->
+<!-- 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'> -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	 <style>
+    @media only screen and (min-width: 641px) {
+      .am-offcanvas {
+        display: block;
+        position: static;
+        background: none;
+      }
+
+      .am-offcanvas-bar {
+        position: static;
+        width: auto;
+        background: none;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      .am-offcanvas-bar:after {
+        content: none;
+      }
+
+    }
+
+    @media only screen and (max-width: 640px) {
+      .am-offcanvas-bar .am-nav>li>a {
+        color:#ccc;
+        border-radius: 0;
+        border-top: 1px solid rgba(0,0,0,.3);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05)
+      }
+
+      .am-offcanvas-bar .am-nav>li>a:hover {
+        background: #404040;
+        color: #fff
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-nav-header {
+        color: #777;
+        background: #404040;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+        text-shadow: 0 1px 0 rgba(0,0,0,.5);
+        border-top: 1px solid rgba(0,0,0,.3);
+        font-weight: 400;
+        font-size: 75%
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-active>a {
+        background: #1a1a1a;
+        color: #fff;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+      }
+
+      .am-offcanvas-bar .am-nav>li+li {
+        margin-top: 0;
+      }
+    }
+
+    .my-head {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .my-button {
+      position: fixed;
+      top: 0;
+      right: 0;
+      border-radius: 0;
+    }
+    .my-sidebar {
+      padding-right: 0;
+      border-right: 1px solid #eeeeee;
+    }
+
+    .my-footer {
+      border-top: 1px solid #eeeeee;
+      padding: 10px 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+	img.position{
+	margin:auto;
+	}
+	img.bq{
+	display:inline;
+	height:80px;
+	vertical-align:text-bottom;
+	}
+#customers
+  {
+  width:100%;
+  border-collapse:collapse;
+  text-align:center;
+
+
+  }
+
+#customers td, #customers th
+  {
+  font-size:1em;
+  border:1px solid gray;
+  padding:3px 7px 2px 7px;
+  	vertical-align:middle;
+	  text-align:center;
+	  width:10%;
+  }
+
+#customers th{
+background-color:gray;
+color:white;
+
+}
+
+#customers tr.alt td 
+  {
+  color:#000000;
+  background-color:rgb(240,240,240);
+    width:20%;
+		vertical-align:middle;
+  }
+  </style>
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+<!--             <a class="navbar-brand" href="index.html">Back to Home</a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="index0.html">Home</a>
+                </li>
+                
+                <li>
+                    <a href="http://www.psylife.cc/" target="_blank">About</a>
+                </li>
+                
+                <li>
+                    <a href="http://xyf2015.github.io/blog/" target="_blank">Contact</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('img/charts/02/01b.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Excel2016系列之——旭日图</h1>
+                    
+                    <h2 class="subheading">一层一层又一层</h2>
+                    
+                    <span class="meta">整理人：赵炜  &nbsp;&nbsp;&nbsp;&nbsp; 2016-01-04</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+ 
+<article>
+    <div class="container">
+	
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>作为日常办公的常用工具之一，Excel帮助我们完成了大量快速分析和图表生成的任务。但是，让人觉得比较尴尬的是，在当前数据技术不断开拓的时代，衍生出的一系列崭新的图表表达形式则并没有被纳入Excel之前的版本中，或者，很多时候需要进行大量的数据转换或者是图表叠加才能达到所需的效果。</p>
+
+				<p>于是，大概是痛定思痛，又或者是死马当活马医了，Excel2016算是把旭日图加了进去。在功能上么，好吧，其实还是比较简易的。</p>
+				
+				<p>闲话少叙，以下进入 <strong>Excel2016系列之——旭日图</strong>。</p>
+				
+
+<h2 class="section-heading">旭日图简介</h2>
+
+<p>旭日图的英文名是Sunburst，百度翻译比较长：<small><i style="color:gray">从云隙射下的阳光，镶有钻石的旭日形首饰</i></small>。因为没法用这么长的名字，所以一般就译为旭日图。</p>
+
+<p>一般而言，旭日图在处理有层次关系的数据方面非常理想，可以看这样几个用例</p>
+
+<p>来自于D3：主题是关于某网站的点击情况</p><p><img src="img/charts/02/02.png" class="position"></img></p>
+<span class="caption text-muted">图1 D3的旭日图</span>
+<p>来自于pentaho：主题是关于在不同国家不同地区的销售情况</p><p><img src="img/charts/02/03.png" class="position"></img></p>
+<span class="caption text-muted">图2 pentaho的旭日图</span>
+
+<p>是不是觉得相当帅气，妈妈再也不用担心作图了。</p>
+
+<p>不过仔细看看，其实他就脱胎于传统的饼图。另外，是不是觉得图1比图2更cool？无他，旭日图在表现流失方面显得更为专业和实用。毕竟饱满的饼图和圆环图实在是过于烂大街了...</p>
+
+
+<h2 class="section-heading">Excel的旭日图实现</h2>
+
+<p>正片来了，那么在新的Excel2016里面，应该怎么做旭日图？其实不看这篇内容可以直接参考百度经验，链接已经贴在Reference里了。</p>
+<p>那么为什么又要这里实现一下？主要有2个原因：1是提供一种思路，在教育行业的数据中可以怎么应用。2是为了装X。</p>
+
+
+<!-- <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span></p> -->
+
+<p>先来个成品：</p>
+
+<!-- <blockquote>Treemap is a space-constrained visualization of hierarchical structures. It is very effective in showing attributes of leaf nodes using size and color coding. Treemap enables users to compare nodes and sub-trees even at varying depth in the tree, and help them spot patterns and exceptions.</blockquote>
+<blockquote>
+Treemap was first designed by Ben Shneiderman during the 1990s. For more information, read the <a href="http://www.cs.umd.edu/hcil/treemap-history/">historical summary of treemaps,</a> their growing set of applications, and the many other implementations. Treemaps are a continuing topic of research and application at the HCIL.</blockquote> -->
+
+<p><img src="img/charts/02/04.png" class="position"></img></p>
+<span class="caption text-muted">图3 不同类型学生成绩变化图</span>
+
+<p>这图什么意思呢？概括来说，就是用了100个学生从2012学年到2014学年三年的考试成绩，每年的成绩都根据前33%，中34%，后33%的方式分为三组，然后来看，三年之中不同类型学生的成绩变化。比如，有多少学生是三年成绩都比较好的？有多少学生入学成绩很好，但是后劲不足的？等等，可以比较宏观地把握班级学生的学习状态。其中有些空白的地方，就是一些特殊情况了，比如毕业、转学、缺考。（至于你说要具体看那些学生变成啥样了，看原始数据去...）</p>
+<p>那么，这个图是怎么从原始数据一步步来的呢？接下来就会重点说一说。</p>
+<p>最初，数据是这个样子的：</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>学生</th>
+      <th>学年</th>
+      <th>成绩</th>
+
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td>stu_1</td>	<td>2012</td>	<td>差</td>	</tr>
+<tr class="alt">	<td>stu_2</td>	<td>2012</td>	<td>中</td>	</tr>
+<tr>	<td>stu_3</td>	<td>2012</td>	<td>差</td>	</tr>
+<tr class="alt">	<td>stu_4</td>	<td>2012</td>	<td>中</td>	</tr>
+<tr>	<td>stu_5</td>	<td>2012</td>	<td>好</td>	</tr>
+<tr class="alt">	<td>...</td>	<td>...</td>	<td>...</td>	</tr>
+<tr>	<td>stu_1</td>	<td>2013</td>	<td>好</td>	</tr>
+<tr class="alt">	<td>stu_2</td>	<td>2013</td>	<td></td>	</tr>
+<tr>	<td>stu_3</td>	<td>2013</td>	<td></td>	</tr>
+<tr class="alt">	<td>stu_4</td>	<td>2013</td>	<td>差</td>	</tr>
+<tr>	<td>stu_5</td>	<td>2013</td>	<td>中</td>	</tr>
+<tr class="alt">	<td>...</td>	<td>...</td>	<td>...</td>	</tr>
+<tr>	<td>stu_1</td>	<td>2014</td>	<td>好</td>	</tr>
+<tr class="alt">	<td>stu_2</td>	<td>2014</td>	<td></td>	</tr>
+<tr>	<td>stu_3</td>	<td>2014</td>	<td>差</td>	</tr>
+<tr class="alt">	<td>stu_4</td>	<td>2014</td>	<td>差</td>	</tr>
+<tr>	<td>stu_5</td>	<td>2014</td>	<td></td>	</tr>
+
+<tr class="alt">	<td>...</td>	<td>...</td>	<td>...</td>	</tr>
+
+
+	  </tbody>
+</table>
+
+<p>显然没法直接做旭日图，</p>
+
+<p>那么，就需要转换，我做的时候主要经历了2个步骤：</p>
+<ol>
+<li><strong>成绩转换为数字</strong></li>
+
+<p>首先，为了方便透视表操作，成绩转换为数字，分别记：缺失=0、差=1、中=2、好=3</p>
+
+<li><strong>以学生为对象，学年为变量进行行列转换。</strong></li>
+
+<p>结果如下：</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>学生</th>
+      <th>2012学年</th>
+      <th>2013学年</th>
+      <th>2014学年</th>
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td>stu_1</td>	<td>1</td>	<td>3</td>	<td>3</td>	</tr>
+<tr class="alt">	<td>stu_2</td>	<td>2</td>	<td>0</td>	<td>0</td>	</tr>
+<tr>	<td>stu_3</td>	<td>1</td>	<td>0</td>	<td>1</td>	</tr>
+<tr class="alt">	<td>stu_4</td>	<td>2</td>	<td>1</td>	<td>1</td>	</tr>
+<tr>	<td>stu_5</td>	<td>3</td>	<td>2</td>	<td>0</td>	</tr>
+
+<tr class="alt">	<td>...</td>	<td>...</td>	<td>...</td>	<td>...</td> </tr>
+	  </tbody>
+</table>
+
+<p style="color:gray"><strong>tips:</strong><small><i>上图用数据透视表即可实现。以学生为行，学年为列，成绩为值，计算使用默认的求和即可。</i></small></p>
+
+
+<li><strong>记2012学年-2014学年的每种组合分别为一类，进行统计汇总。</strong></li>
+
+<p>结果如下：</p>
+
+<table id = "customers">
+ <thead>
+    <tr>
+      <th>类型</th>
+      <th>2012学年</th>
+      <th>2013学年</th>
+      <th>2014学年</th>
+      <th>学生</th>
+    </tr>
+  </thead> 
+  <tbody>
+<tr>	<td>差</td>	<td>1</td>	<td>0</td>	<td></td>	<td>4.00%</td>	</tr>
+<tr class="alt">	<td>差差</td>	<td>1</td>	<td>1</td>	<td>0</td>	<td>2.00%</td>	</tr>
+<tr>	<td>差差差</td>	<td>1</td>	<td>1</td>	<td>1</td>	<td>1.00%</td>	</tr>
+<tr class="alt">	<td>差差中</td>	<td>1</td>	<td>1</td>	<td>2</td>	<td>4.00%</td>	</tr>
+<tr>	<td>差中</td>	<td>1</td>	<td>2</td>	<td>0</td>	<td>5.00%</td>	</tr>
+<tr class="alt">	<td>差中差</td>	<td>1</td>	<td>2</td>	<td>1</td>	<td>2.00%</td>	</tr>
+<tr>	<td>差中中</td>	<td>1</td>	<td>2</td>	<td>2</td>	<td>2.00%</td>	</tr>
+
+<tr class="alt">	<td>...</td>	<td>...</td>	<td>...</td>	<td>...</td> <td>...</td></tr>
+	  </tbody>
+</table>
+
+<p style="color:gray"><strong>tips:</strong><small><i>上图用数据透视表即可实现。以2012学年、2013学年、2014学年为行，学生为值，计算使用默认的计数，显示采用行会总的百分比即可。</i></small></p>
+
+
+</ol>
+
+
+<p>根据上述步骤转换后，就可以选中数据插入图表了。</p>
+<p><img src="img/charts/02/05.png" class="position"></img></p>
+<span class="caption text-muted">图5 excel旭日图示例</span>
+<p>这样，Excel版的旭日图就初具雏形了。</p>
+<p>神马？你问我为什么是初具雏形？好吧，后面还有一系列可调的地方，比如配色，字体，大小之类的事情，我就给不了参考意见了。</p>
+
+<br/>
+<p><strong>结束语：</strong>这一期的主题是旭日图，旭日图非常适合于层次关系明确的数据，在某些方面和树状图有些类似，只是表现的手法和形式有所不同。</p>
+<p>文章末尾再呼应下副标题，一层一层又一层，就是可以慢慢剥开的意思，有递进的关系。好吧，其实应该看出来了，这边抄袭了歌词。</p>
+
+<blockquote>……如果你愿意一层一层
+一层的剥开我的心
+你会鼻酸
+你会流泪
+只要你能
+听到我
+看到我的全心全意…… <br/><span class="caption text-muted" style="text-align:right">《洋葱》 by 杨宗纬</span></blockquote>
+
+
+<h2 class="section-heading">Reference</h2>
+ <a href="http://wiki.pentaho.com/display/COM/Sunburst" target="_blank">pentaho:Sunburst</a><br/>
+ <a href="http://bl.ocks.org/kerryrodden/7090426" target="_blank">D3:Sequences sunburst</a><br/>
+ <a href="http://jingyan.baidu.com/article/fdbd4277f1b0dcb89e3f48bf.html" target="_blank">百度经验：Excel2016 增“旭日图”分析数据的层次及占比</a>
+
+<!-- <p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p> -->
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="charts_page1.html" data-toggle="tooltip" data-placement="top" title="上一篇：树状图">&larr; Previous Blog</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="charts_page3.html" data-toggle="tooltip" data-placement="top" title="下一篇：箱型图">Next Blog &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+			
+        </div>
+		
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!--                 <ul class="list-inline text-center">
+                    <li>
+                        <a href="feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/xyf2015">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul> -->
+                <p class="copyright text-muted">Copyright &copy; Psylife 2015</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>
